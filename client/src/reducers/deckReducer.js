@@ -34,7 +34,7 @@ export default function (state = initialState, action) {
         case ADD_DECK:
             return {
                 ...state,
-                decks: [action.payload, ...state.decks]
+                deck: action.payload
             };
         case DELETE_DECK:
             return {

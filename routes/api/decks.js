@@ -9,6 +9,7 @@ const Deck = require('../../models/Deck')
 const Profile = require('../../models/Profile')
 //Validation
 const validateDeckInput = require('../../validation/deck');
+const validateCardInput = require('../../validation/card');
 
 
 //@route    GET api/decks
@@ -40,15 +41,42 @@ router.post('/', passport.authenticate('jwt', { session:false}), (req, res) => {
     if(!isValid) {
         return res.status(400).json(errors);
     }
+    Profile.findOne({user: req.user.id}).then(pro => {
+        const newDeck = new Deck({
+            subject: req.body.subject,
+            description: req.body.description,
+            handle: req.body.handle,
+            avatar: req.body.avatar,
+            user: req.user.id
+        });
+        pro.decks.unshift(newDeck._id)
+        pro.save().then(pro => {
+            newDeck.save().then(deck => res.json(deck))
+        })
+    })
+});
 
-    const newDeck = new Deck({
-      text: req.body.text,
-      name: req.body.name,
-      avatar: req.body.avatar,
-      user: req.user.id
-    });
+//@route    POST api/deck/card/:deck_id/
+//@desc     Creates a card for a deck
+//@access   private
+router.post('/card/:deck_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const { errors, isValid } = validateCardInput(req.body);
 
-    newDeck.save().then(deck => res.json(deck))
+    if (!isValid) {
+        return res.status(400).json(errors);
+    }
+    Deck.findById(req.params.deck_id)
+        .then(deck => {
+            const newCard = {
+                term: req.body.term,
+                definition: req.body.definition,
+            }
+            // Add to comments array
+            deck.cards.unshift(newCard);
+            //save
+            deck.save().then(deck => res.json(deck))
+        })
+        .catch(err => res.status(404).json({ decknotfound: 'No deck found' }));
 });
 
 //@route    DELETE api/decks/:id

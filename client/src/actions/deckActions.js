@@ -11,10 +11,29 @@ import {
 } from './types';
 
 // Add Deck
-export const addDeck = deckData => dispatch => {
+export const addDeck = (deckData) => dispatch => {
     dispatch(clearErrors());
     axios
-        .deck('/api/decks', deckData)
+        .post('/api/decks', deckData)
+        .then(res =>
+            dispatch({
+                type: ADD_DECK,
+                payload: res.data
+            })
+        ) 
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+
+//Add Card
+export const addCard = (deck_id, cardData) => dispatch => {
+    dispatch(clearErrors());
+    axios
+        .post(`/api/decks/card/${deck_id}`, cardData)
         .then(res =>
             dispatch({
                 type: ADD_DECK,
@@ -88,7 +107,7 @@ export const deleteDeck = id => dispatch => {
 // Add Like
 export const addLike = id => dispatch => {
     axios
-        .deck(`/api/decks/like/${id}`)
+        .post(`/api/decks/like/${id}`)
         .then(res => dispatch(getDecks()))
         .catch(err =>
             dispatch({
@@ -101,7 +120,7 @@ export const addLike = id => dispatch => {
 // Remove Like
 export const removeLike = id => dispatch => {
     axios
-        .deck(`/api/decks/unlike/${id}`)
+        .post(`/api/decks/unlike/${id}`)
         .then(res => dispatch(getDecks()))
         .catch(err =>
             dispatch({
@@ -115,7 +134,7 @@ export const removeLike = id => dispatch => {
 export const addComment = (deckId, commentData) => dispatch => {
     dispatch(clearErrors());
     axios
-        .deck(`/api/decks/comment/${deckId}`, commentData)
+        .post(`/api/decks/comment/${deckId}`, commentData)
         .then(res =>
             dispatch({
                 type: GET_DECK,

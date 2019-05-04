@@ -5,8 +5,11 @@ import DeckItem from './DeckItem';
 class DeckFeed extends Component {
     render() {
         const { decks } = this.props;
-
-        return decks.map(deck => <DeckItem key={deck._id} deck={deck} />);
+        if (decks.length < 1){
+            return <div> You haven't created anything! </div>
+        }else{
+            return decks.map(deck => <DeckItem key={deck._id} deck={deck} />);
+        }
     }
 }
 

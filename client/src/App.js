@@ -18,8 +18,8 @@ import Login from './components/auth/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/create-profile/CreateProfile';
 import EditProfile from './components/edit-profile/EditProfile';
-import AddExperience from './components/create-profile/AddExperience';
-import AddEducation from './components/create-profile/AddEducation';
+import AddDeck from './components/dashboard/AddDeck';
+import AddCard from './components/dashboard/AddCard';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Decks from './components/decks/Decks';
@@ -71,10 +71,10 @@ class App extends Component {
                 <PrivateRoute exact path="/edit-profile" component={EditProfile} />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/add-experience" component={AddExperience} />
+                <PrivateRoute exact path="/add-deck" component={AddDeck} />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/add-education" component={AddEducation} />
+                <PrivateRoute exact path="/add-card" component={AddCard} />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/deck/:id" component={Deck} />

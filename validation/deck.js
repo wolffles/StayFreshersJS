@@ -8,7 +8,7 @@ module.exports = function validateDeckInput(data) {
   // data.text = !isEmpty(data.text) ? data.text : "";
 
   if (Validator.isEmpty(data.subject)) {
-    errors.subject = "Comments can't be blank";
+    errors.subject = "subject can't be blank";
   }
 
   // if (Validator.isEmpty(data.subject)) {

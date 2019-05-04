@@ -36,7 +36,7 @@ class Deck extends Component {
                         <div className="col-md-12">
                             <Link to="/feed" className="btn btn-light mb-3">
                                 Back To Feed
-              </Link>
+                            </Link>
                             {deckContent}
                         </div>
                     </div>

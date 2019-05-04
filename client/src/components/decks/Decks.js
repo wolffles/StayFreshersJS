@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import DeckForm from './DeckForm';
+// import DeckForm from './DeckForm';
 import DeckFeed from './DeckFeed';
 import Spinner from '../common/Spinner';
 import { getDecks } from '../../actions/deckActions';
@@ -26,7 +26,7 @@ class Decks extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <DeckForm />
+                            {/* <DeckForm /> */}
                             {deckContent}
                         </div>
                     </div>

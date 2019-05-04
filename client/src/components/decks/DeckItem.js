@@ -10,13 +10,13 @@ class DeckItem extends Component {
         this.props.deleteDeck(id);
     }
 
-    onLikeClick(id) {
-        this.props.addLike(id);
-    }
+    // onLikeClick(id) {
+    //     this.props.addLike(id);
+    // }
 
-    onUnlikeClick(id) {
-        this.props.removeLike(id);
-    }
+    // onUnlikeClick(id) {
+    //     this.props.removeLike(id);
+    // }
 
     findUserLike(likes) {
         const { auth } = this.props;
@@ -29,27 +29,27 @@ class DeckItem extends Component {
 
     render() {
         const { deck, auth, showActions } = this.props;
-
         return (
             <div className="card card-body mb-3">
                 <div className="row">
                     <div className="col-md-2">
-                        <a href="profile.html">
+                        {/* <a href="profile.html">
                             <img
                                 className="rounded-circle d-none d-md-block"
                                 src={deck.avatar}
                                 alt=""
                             />
                         </a>
-                        <br />
-                        <p className="text-center">{deck.name}</p>
+                        <br /> */}
+                        {/* <p className="text-center">{deck.subject}</p> */}
                     </div>
                     <div className="col-md-10">
-                        <p className="lead">{deck.text}</p>
+                        <p className="text-center">{deck.subject}</p>
+                        <p className="lead">{deck.description}</p>
                         {showActions ? (
                             <span>
                                 <button
-                                    onClick={this.onLikeClick.bind(this, deck._id)}
+                                    // onClick={this.onLikeClick.bind(this, deck._id)}
                                     type="button"
                                     className="btn btn-light mr-1"
                                 >
@@ -61,7 +61,7 @@ class DeckItem extends Component {
                                     <span className="badge badge-light">{deck.likes.length}</span>
                                 </button>
                                 <button
-                                    onClick={this.onUnlikeClick.bind(this, deck._id)}
+                                    // onClick={this.onUnlikeClick.bind(this, deck._id)}
                                     type="button"
                                     className="btn btn-light mr-1"
                                 >
@@ -94,8 +94,8 @@ DeckItem.defaultProps = {
 
 DeckItem.propTypes = {
     deleteDeck: PropTypes.func.isRequired,
-    addLike: PropTypes.func.isRequired,
-    removeLike: PropTypes.func.isRequired,
+    // addLike: PropTypes.func.isRequired,
+    // removeLike: PropTypes.func.isRequired,
     deck: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired
 };
