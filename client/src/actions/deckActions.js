@@ -7,7 +7,8 @@ import {
     GET_DECKS,
     GET_DECK,
     DECK_LOADING,
-    DELETE_DECK
+    DELETE_DECK,
+    CLEAR_DECK
 } from './types';
 
 // Add Deck
@@ -53,6 +54,24 @@ export const getDecks = () => dispatch => {
     dispatch(setDeckLoading());
     axios
         .get('/api/decks')
+        .then(res =>
+            dispatch({
+                type: GET_DECKS,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch({
+                type: GET_DECKS,
+                payload: null
+            })
+        );
+};
+
+export const getUserDecks = (user_id) => dispatch => {
+    dispatch(setDeckLoading());
+    axios
+        .get(`/api/decks/user/${user_id}`)
         .then(res =>
             dispatch({
                 type: GET_DECKS,
@@ -173,6 +192,12 @@ export const setDeckLoading = () => {
         type: DECK_LOADING
     };
 };
+
+export const clearDeck = () => {
+    return {
+        type: CLEAR_DECK
+    }
+}
 
 // Clear errors
 export const clearErrors = () => {

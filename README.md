@@ -9,7 +9,6 @@ CURRENTLY
   * working on UI 
     - edit decks
     - edit cards if possible
-    - delete decks
     - 
 
 After login a user is taken to profile dashboard page should have the ability to:

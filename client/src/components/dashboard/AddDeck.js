@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import TextFieldGroup from '../common/TextFieldGroup';
-import { addDeck } from '../../actions/deckActions';
+import { addDeck, clearDeck } from '../../actions/deckActions';
 import AddCard from './AddCard'
 import isEmpty from '../../validation/is-empty'
 
@@ -25,6 +25,10 @@ class AddDeck extends Component {
         if (newProps.errors) {
             this.setState({ errors: newProps.errors });
         }
+    }
+
+    componentWillUnmount(){
+        this.props.clearDeck();
     }
 
     onSubmit(e) {
@@ -99,7 +103,8 @@ AddDeck.propTypes = {
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired,
-    deck: PropTypes.object.isRequired
+    deck: PropTypes.object.isRequired,
+    clearDeck: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -109,4 +114,4 @@ const mapStateToProps = state => ({
     deck: state.deck
 });
 
-export default connect(mapStateToProps, { addDeck })(AddDeck);
+export default connect(mapStateToProps, { addDeck,clearDeck })(AddDeck);

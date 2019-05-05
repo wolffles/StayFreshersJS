@@ -38,7 +38,7 @@ router.get('/all', (req, res) => {
 router.get('/', passport.authenticate('jwt', { session: false }), (req,res) => {
     const errors = {};
     Profile.findOne({ user: req.user.id})
-    .populate({ path:'decks', select: ['subject', 'description', 'id', 'handle', 'cards', 'likes', 'comments', 'date']})
+    .populate({ path:'decks', select: ['subject', 'description', 'id', 'handle', 'cards', 'likes', 'comments', 'user', 'date']})
     .populate('user', ['name', 'avatar'])
     .then( profile => {
         if(!profile) {

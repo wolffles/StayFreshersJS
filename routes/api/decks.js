@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-//deck model
+// deck model
 const Deck = require('../../models/Deck')
 // Profile model
 const Profile = require('../../models/Profile')
@@ -21,6 +21,16 @@ router.get('/', (req, res) => {
         .then(decks => res.json(decks))
         .catch( err => res.status(404).json({nodecksfound: "No decks found"}));
 });
+
+//@route    GET api/decks
+//@desc     gets decks by user ID
+//@access   public 
+router.get('/user/:user_id', (req, res) => {
+    Profile.findOne({ user: req.params.user_id })
+        .populate("decks")
+        .then(profile => res.json(profile.decks))
+        .catch(err => res.status(404).json({ nodeckFound: "no Profile found with that ID" }));
+})
 
 //@route    GET api/decks
 //@desc     gets a decks
@@ -126,7 +136,7 @@ router.post(
     }
 );
 //@route    POST api/decks/unlike/:id
-//@desc     Like deck
+//@desc     unlike deck
 //@access   private
 router.post(
     '/unlike/:id',

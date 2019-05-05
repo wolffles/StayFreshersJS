@@ -68,8 +68,11 @@ class DeckItem extends Component {
                                     <i className="text-secondary fas fa-thumbs-down" />
                                 </button>
                                 <Link to={`/deck/${deck._id}`} className="btn btn-info mr-1">
+                                    View
+                                </Link>
+                                {/* <Link to={`/deck/${deck._id}`} className="btn btn-info mr-1">
                                     Comments
-                </Link>
+                                </Link> */}
                                 {deck.user === auth.user.id ? (
                                     <button
                                         onClick={this.onDeleteClick.bind(this, deck._id)}

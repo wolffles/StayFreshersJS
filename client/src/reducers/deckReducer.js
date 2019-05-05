@@ -3,7 +3,8 @@ import {
     GET_DECKS,
     GET_DECK,
     DELETE_DECK,
-    DECK_LOADING
+    DECK_LOADING,
+    CLEAR_DECK
 } from '../actions/types';
 
 const initialState = {
@@ -41,6 +42,11 @@ export default function (state = initialState, action) {
                 ...state,
                 decks: state.decks.filter(deck => deck._id !== action.payload)
             };
+        case CLEAR_DECK:
+            return {
+                ...state,
+                deck: {}
+            }
         default:
             return state;
     }
