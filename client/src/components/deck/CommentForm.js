@@ -74,7 +74,7 @@ class CommentForm extends Component {
 }
 
 CommentForm.propTypes = {
-    addDeck: PropTypes.func.isRequired,
+    // addDeck: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     deckId: PropTypes.string.isRequired,
     errors: PropTypes.object.isRequired

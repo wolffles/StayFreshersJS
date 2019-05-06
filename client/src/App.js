@@ -24,6 +24,7 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Decks from './components/decks/Decks';
 import Deck from './components/deck/Deck';
+import EditDeck from './components/deck/EditDeck';
 import NotFound from './components/not-found/NotFound';
 
 import './App.css';
@@ -72,6 +73,9 @@ class App extends Component {
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/add-deck" component={AddDeck} />
+              </Switch>
+              <Switch>
+              <PrivateRoute exact path="/edit-deck" component={EditDeck} />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/add-card" component={AddCard} />

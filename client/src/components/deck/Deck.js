@@ -7,19 +7,30 @@ import CommentForm from './CommentForm';
 import CommentFeed from './CommentFeed';
 import Spinner from '../common/Spinner';
 import { getDeck } from '../../actions/deckActions';
+import EditDeck from './EditDeck';
 
 class Deck extends Component {
-    componentDidMount() {
-        this.props.getDeck(this.props.match.params.id);
+    constructor(props) {
+        super(props);
+        this.state = {
+            edit: false
+        };
+    }
+    componentWillMount(){
+        if(this.props.match.params.id){
+            this.props.getDeck(this.props.match.params.id)
+        }
     }
 
     render() {
-        const { deck, loading } = this.props.deck;
+        const {deck, loading } = this.props.deck;
+        console.log(this.props)
         let deckContent;
-
         if (deck === null || loading || Object.keys(deck).length === 0) {
             deckContent = <Spinner />;
-        } else {
+        } else if(this.state.edit == true){
+            deckContent = <EditDeck deck={deck}/>
+        }else{
             deckContent = (
                 <div>
                     <DeckItem deck={deck} showActions={false} />
@@ -34,8 +45,8 @@ class Deck extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <Link to="/feed" className="btn btn-light mb-3">
-                                Back To Feed
+                            <Link to="/dashboard" className="btn btn-light mb-3">
+                                Back To dashboard
                             </Link>
                             {deckContent}
                         </div>

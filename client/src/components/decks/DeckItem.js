@@ -67,7 +67,7 @@ class DeckItem extends Component {
                                 >
                                     <i className="text-secondary fas fa-thumbs-down" />
                                 </button>
-                                <Link to={`/deck/${deck._id}`} className="btn btn-info mr-1">
+                                <Link to={ `/deck/${deck._id}` } className="btn btn-info mr-1">
                                     View
                                 </Link>
                                 {/* <Link to={`/deck/${deck._id}`} className="btn btn-info mr-1">
