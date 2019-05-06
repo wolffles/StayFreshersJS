@@ -7,7 +7,6 @@ Here the Nerds are the popular ones
 #USER STORIES
 CURRENTLY
   * working on UI 
-    - edit decks(after view we click edit button to toggle true)
     - edit cards if possible
     - view cards
 

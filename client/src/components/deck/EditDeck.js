@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import TextFieldGroup from '../common/TextFieldGroup';
-import { addDeck, clearDeck } from '../../actions/deckActions';
+import { addDeck, clearDeck, toggleEdit } from '../../actions/deckActions';
 // import AddCard from './AddCard'
 import isEmpty from '../../validation/is-empty'
 
@@ -19,11 +19,13 @@ class EditDeck extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+
   componentWillMount(){
-    const { deck } = this.props.location.state;
+    const { deck } = this.props.deck
+    console.log(this.props)
     this.setState({
       subject: deck.subject,
-      description: deck.subject
+      description: deck.description
     })
   }
 
@@ -41,17 +43,20 @@ class EditDeck extends Component {
     e.preventDefault();
 
     const { user } = this.props.auth;
-    const { profile } = this.props.profile;
+    const {deck} = this.props.deck
+    console.log(deck._id)
     const newDeck = {
       subject: this.state.subject,
       description: this.state.description,
-      handle: profile.handle,
+      handle: deck.handle,
       name: user.name,
-      avatar: user.avatar
+      avatar: user.avatar,
+      deck_id: deck._id
     };
 
     this.props.addDeck(newDeck);
-    // this.setState({ Subject: '' });
+    this.setState({ subject: '', description: '' });
+    this.props.toggleEdit();
   }
 
   onChange(e) {
@@ -87,7 +92,7 @@ class EditDeck extends Component {
     return (
       <div className="deck-form mb-3">
         <div className="card card-info">
-          <div className="card-header bg-info text-white">Create your deck</div>
+          <div className="card-header bg-info text-white">Edit your deck</div>
           <div className="card-body">
             {deckContent}
           </div>
@@ -98,6 +103,7 @@ class EditDeck extends Component {
 }
 
 EditDeck.propTypes = {
+  toggleEdit: PropTypes.func.isRequired,
   addDeck: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
@@ -113,4 +119,4 @@ const mapStateToProps = state => ({
   deck: state.deck
 });
 
-export default connect(mapStateToProps, { addDeck, clearDeck })(EditDeck);
+export default connect(mapStateToProps, { toggleEdit, addDeck, clearDeck })(EditDeck);

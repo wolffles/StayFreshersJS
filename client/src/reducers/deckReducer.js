@@ -4,13 +4,15 @@ import {
     GET_DECK,
     DELETE_DECK,
     DECK_LOADING,
+    DECK_EDIT,
     CLEAR_DECK
 } from '../actions/types';
 
 const initialState = {
     decks: [],
     deck: {},
-    loading: false
+    loading: false,
+    edit: false
 };
 
 export default function (state = initialState, action) {
@@ -20,6 +22,11 @@ export default function (state = initialState, action) {
                 ...state,
                 loading: true
             };
+        case DECK_EDIT:
+            return {
+                ...state,
+                edit: !state.edit
+            }
         case GET_DECKS:
             return {
                 ...state,

@@ -6,29 +6,39 @@ import DeckItem from '../decks/DeckItem';
 import CommentForm from './CommentForm';
 import CommentFeed from './CommentFeed';
 import Spinner from '../common/Spinner';
-import { getDeck } from '../../actions/deckActions';
+import { getDeck, toggleEdit } from '../../actions/deckActions';
 import EditDeck from './EditDeck';
 
 class Deck extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            edit: false
         };
+
+        this.onClick = this.onClick.bind(this);
     }
+
     componentWillMount(){
         if(this.props.match.params.id){
             this.props.getDeck(this.props.match.params.id)
         }
     }
+    componentWillUnmount(){
+        if(this.props.deck.edit === true){
+            this.props.toggleEdit();
+        }
+    }
+
+    onClick(e) {
+        this.props.toggleEdit();
+    }
 
     render() {
-        const {deck, loading } = this.props.deck;
-        console.log(this.props)
+        const {deck, loading, edit } = this.props.deck;
         let deckContent;
         if (deck === null || loading || Object.keys(deck).length === 0) {
             deckContent = <Spinner />;
-        } else if(this.state.edit == true){
+        } else if( edit === true){
             deckContent = <EditDeck deck={deck}/>
         }else{
             deckContent = (
@@ -39,7 +49,8 @@ class Deck extends Component {
                 </div>
             );
         }
-
+        let editButton;
+        editButton = edit === true ? "" : (<button onClick={this.onClick}>edit</button>)
         return (
             <div className="deck">
                 <div className="container">
@@ -48,6 +59,7 @@ class Deck extends Component {
                             <Link to="/dashboard" className="btn btn-light mb-3">
                                 Back To dashboard
                             </Link>
+                            {editButton}
                             {deckContent}
                         </div>
                     </div>
@@ -58,6 +70,7 @@ class Deck extends Component {
 }
 
 Deck.propTypes = {
+    toggleEdit: PropTypes.func.isRequired,
     getDeck: PropTypes.func.isRequired,
     deck: PropTypes.object.isRequired
 };
@@ -66,4 +79,4 @@ const mapStateToProps = state => ({
     deck: state.deck
 });
 
-export default connect(mapStateToProps, { getDeck })(Deck);
+export default connect(mapStateToProps, { getDeck, toggleEdit })(Deck);

@@ -8,7 +8,8 @@ import {
     GET_DECK,
     DECK_LOADING,
     DELETE_DECK,
-    CLEAR_DECK
+    CLEAR_DECK,
+    DECK_EDIT
 } from './types';
 
 // Add Deck
@@ -190,6 +191,12 @@ export const deleteComment = (deckId, commentId) => dispatch => {
 export const setDeckLoading = () => {
     return {
         type: DECK_LOADING
+    };
+};
+
+export const toggleEdit = () => {
+    return {
+        type: DECK_EDIT
     };
 };
 

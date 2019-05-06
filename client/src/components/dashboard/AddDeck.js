@@ -45,7 +45,7 @@ class AddDeck extends Component {
         };
 
         this.props.addDeck(newDeck);
-        // this.setState({ Subject: '' });
+        this.setState({ subject: '', description:'' });
     }
 
     onChange(e) {

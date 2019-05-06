@@ -33,7 +33,7 @@ router.get('/user/:user_id', (req, res) => {
 })
 
 //@route    GET api/decks
-//@desc     gets a decks
+//@desc     gets a deck by id
 //@access   public 
 router.get('/:id', (req, res) => {
     Deck.findById(req.params.id)
@@ -51,19 +51,37 @@ router.post('/', passport.authenticate('jwt', { session:false}), (req, res) => {
     if(!isValid) {
         return res.status(400).json(errors);
     }
-    Profile.findOne({user: req.user.id}).then(pro => {
-        const newDeck = new Deck({
-            subject: req.body.subject,
-            description: req.body.description,
-            handle: req.body.handle,
-            avatar: req.body.avatar,
-            user: req.user.id
-        });
-        pro.decks.unshift(newDeck._id)
-        pro.save().then(pro => {
-            newDeck.save().then(deck => res.json(deck))
+    
+    if(req.body.deck_id){
+        Deck.findOneAndUpdate(
+            {_id: req.body.deck_id},
+            {
+                $set: {
+                        subject: req.body.subject,
+                        description: req.body.description,
+                        handle: req.body.handle,
+                        avatar: req.body.avatar,
+                        user: req.user.id
+                    }
+            },
+            { upsert: true,
+            new: true } // options.new if true returns the modified document rather than the origianl. default is false
+        ).then(deck => res.json(deck));
+    }else{
+        Profile.findOne({ user: req.user.id }).then(pro => {
+            const newDeck = new Deck({
+                subject: req.body.subject,
+                description: req.body.description,
+                handle: req.body.handle,
+                avatar: req.body.avatar,
+                user: req.user.id
+            });
+            pro.decks.unshift(newDeck._id)
+            pro.save().then(pro => {
+                newDeck.save().then(deck => res.json(deck))
+            })
         })
-    })
+    }
 });
 
 //@route    POST api/deck/card/:deck_id/
