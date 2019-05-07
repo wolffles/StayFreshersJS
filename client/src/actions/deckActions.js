@@ -49,6 +49,23 @@ export const addCard = (deck_id, cardData) => dispatch => {
             })
         );
 };
+// Delete Comment
+export const deleteCard = (deckId, cardId) => dispatch => {
+    axios
+        .delete(`/api/decks/card/${deckId}/${cardId}`)
+        .then(res =>
+            dispatch({
+                type: GET_DECK,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
 
 // Get Decks
 export const getDecks = () => dispatch => {

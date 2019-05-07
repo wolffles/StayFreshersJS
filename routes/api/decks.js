@@ -107,6 +107,28 @@ router.post('/card/:deck_id', passport.authenticate('jwt', { session: false }), 
         .catch(err => res.status(404).json({ decknotfound: 'No deck found' }));
 });
 
+//@route    DELETE api/decks/card/:deck_id/:card_id
+//@desc     deletes a card to deck
+//@access   Private
+router.delete('/card/:deck_id/:card_id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Deck.findById(req.params.deck_id)
+        .then(deck => {
+            //Check to see if card exists
+            if (deck.cards.filter(card => card._id.toString() === req.params.card_id).length === 0) {
+                return res.status(404).json({ cardnotexists: 'Card does not exist' });
+            }
+            //Get remove index
+            const removeIndex = deck.cards
+                .map(item => item._id.toString())
+                .indexOf(req.params.card_id);
+            // Splice card out of array
+            deck.cards.splice(removeIndex, 1);
+
+            deck.save().then(deck => res.json(deck))
+        })
+        .catch(err => res.status(404).json({ decknotfound: 'No deck found' }));
+})
+
 //@route    DELETE api/decks/:id
 //@desc     DELETE deck
 //@access   private

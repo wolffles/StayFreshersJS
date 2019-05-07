@@ -45,7 +45,8 @@ class DeckItem extends Component {
                     </div>
                     <div className="col-md-10">
                         <p className="text-center">{deck.subject}</p>
-                        <p className="lead">{deck.description}</p>
+                        <p className="text-center">{deck.description}</p>
+                        <p className="lead">{deck.cards.length}</p>
                         {showActions ? (
                             <span>
                                 <button

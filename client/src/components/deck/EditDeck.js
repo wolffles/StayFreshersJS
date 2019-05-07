@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import TextFieldGroup from '../common/TextFieldGroup';
 import { addDeck, clearDeck, toggleEdit } from '../../actions/deckActions';
-// import AddCard from './AddCard'
-import isEmpty from '../../validation/is-empty'
 
 class EditDeck extends Component {
   constructor(props) {

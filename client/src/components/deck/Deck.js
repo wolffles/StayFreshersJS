@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DeckItem from '../decks/DeckItem';
-import CommentForm from './CommentForm';
-import CommentFeed from './CommentFeed';
+import AddCard from './AddCard';
+// import CommentFeed from './CommentFeed';
+import CardFeed from './CardFeed';
 import Spinner from '../common/Spinner';
-import { getDeck, toggleEdit } from '../../actions/deckActions';
+import { getDeck, toggleEdit, clearDeck } from '../../actions/deckActions';
 import EditDeck from './EditDeck';
 
 class Deck extends Component {
@@ -27,6 +28,7 @@ class Deck extends Component {
         if(this.props.deck.edit === true){
             this.props.toggleEdit();
         }
+        this.props.clearDeck();
     }
 
     onClick(e) {
@@ -41,16 +43,17 @@ class Deck extends Component {
         } else if( edit === true){
             deckContent = <EditDeck deck={deck}/>
         }else{
+            console.log(deck)
             deckContent = (
                 <div>
                     <DeckItem deck={deck} showActions={false} />
-                    <CommentForm deckId={deck._id} />
-                    <CommentFeed deckId={deck._id} comments={deck.comments} />
+                    <AddCard deck={deck} />
+                    <CardFeed deckId={deck._id} cards={deck.cards} />
                 </div>
             );
         }
         let editButton;
-        editButton = edit === true ? "" : (<button onClick={this.onClick}>edit</button>)
+        editButton = edit === true ? "" : (<button className="btn btn-light mb-3" onClick={this.onClick}>Edit Deck</button>)
         return (
             <div className="deck">
                 <div className="container">
@@ -70,6 +73,7 @@ class Deck extends Component {
 }
 
 Deck.propTypes = {
+    clearDeck: PropTypes.func.isRequired,
     toggleEdit: PropTypes.func.isRequired,
     getDeck: PropTypes.func.isRequired,
     deck: PropTypes.object.isRequired
@@ -79,4 +83,4 @@ const mapStateToProps = state => ({
     deck: state.deck
 });
 
-export default connect(mapStateToProps, { getDeck, toggleEdit })(Deck);
+export default connect(mapStateToProps, { clearDeck, getDeck, toggleEdit })(Deck);

@@ -19,7 +19,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/create-profile/CreateProfile';
 import EditProfile from './components/edit-profile/EditProfile';
 import AddDeck from './components/dashboard/AddDeck';
-import AddCard from './components/dashboard/AddCard';
+// import AddCard from './components/deck/AddCard';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Decks from './components/decks/Decks';
@@ -77,9 +77,9 @@ class App extends Component {
               <Switch>
               <PrivateRoute exact path="/edit-deck" component={EditDeck} />
               </Switch>
-              <Switch>
+              {/* <Switch>
                 <PrivateRoute exact path="/add-card" component={AddCard} />
-              </Switch>
+              </Switch> */}
               <Switch>
                 <PrivateRoute exact path="/deck/:id" component={Deck} />
               </Switch>
