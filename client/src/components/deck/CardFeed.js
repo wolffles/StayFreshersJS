@@ -4,16 +4,14 @@ import CardItem from './CardItem';
 
 class CardFeed extends Component {
   render() {
-    const { cards, deckId } = this.props;
+    const { cards, deckId, deckUser } = this.props;
     return cards.map(card => (
-      <CardItem key={card._id} card={card} deckId={deckId} />
+      <CardItem key={card._id} card={card} deckUser={deckUser} deckId={deckId} />
     ));
   }
 }
 
 CardFeed.propTypes = {
-  comments: PropTypes.array.isRequired,
-  deck: PropTypes.object.isRequired
 };
 
 export default CardFeed;

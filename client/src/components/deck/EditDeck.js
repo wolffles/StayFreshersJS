@@ -20,7 +20,6 @@ class EditDeck extends Component {
 
   componentWillMount(){
     const { deck } = this.props.deck
-    console.log(this.props)
     this.setState({
       subject: deck.subject,
       description: deck.description
@@ -42,7 +41,6 @@ class EditDeck extends Component {
 
     const { user } = this.props.auth;
     const {deck} = this.props.deck
-    console.log(deck._id)
     const newDeck = {
       subject: this.state.subject,
       description: this.state.description,

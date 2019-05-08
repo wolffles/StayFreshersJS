@@ -95,14 +95,22 @@ router.post('/card/:deck_id', passport.authenticate('jwt', { session: false }), 
     }
     Deck.findById(req.params.deck_id)
         .then(deck => {
-            const newCard = {
-                term: req.body.term,
-                definition: req.body.definition,
+            const ifCard = deck.cards.filter(card => card._id.toString() === req.body.card_id)
+            if (ifCard.length === 0) {
+                const newCard = {
+                    term: req.body.term,
+                    definition: req.body.definition,
+                }
+                // Add to comments array
+                deck.cards.unshift(newCard);
+                //save
+                deck.save().then(deck => res.json(deck))
+            }else {
+                ifCard[0].term = req.body.term,
+                ifCard[0].definition = req.body.definition
+
+                deck.save().then(deck => res.json(deck))
             }
-            // Add to comments array
-            deck.cards.unshift(newCard);
-            //save
-            deck.save().then(deck => res.json(deck))
         })
         .catch(err => res.status(404).json({ decknotfound: 'No deck found' }));
 });

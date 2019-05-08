@@ -6,6 +6,7 @@ Here the Nerds are the popular ones
 
 #USER STORIES
 CURRENTLY ( rush to production )
+  * there isn't a way to edit cards yet
   * landing page should show whats coming for the app. 
   * try to use less default bootstrap looking UI
   * get the ability to test the decks
