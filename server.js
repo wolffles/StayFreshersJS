@@ -29,7 +29,7 @@ app.use(passport.initialize());
 // Passport Config
 require('./config/passport')(passport);
 
-//Use Routes
+//Use Routes .use is a method to use when you want to include middleware
 app.use('/api/users', users);
 app.use('/api/decks', decks);
 app.use('/api/profile', profile);
