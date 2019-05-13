@@ -4,6 +4,7 @@
   "description": "the Nerds are popular here",
   "main": "server.js",
   "scripts": {
+    "test": "export NODE_ENV=test && mocha --exit",
     "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
@@ -25,6 +26,10 @@
     "validator": "^10.8.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "chai": "4.2.0",
+    "mocha": "6.1.4",
+    "nodemon": "^1.18.4",
+    "request": "2.88.0",
+    "supertest": "4.0.2"
   }
 }
