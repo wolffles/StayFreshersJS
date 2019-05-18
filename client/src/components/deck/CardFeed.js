@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import CardItem from './CardItem';
 
 class CardFeed extends Component {
@@ -11,7 +11,7 @@ class CardFeed extends Component {
   }
 }
 
-CardFeed.propTypes = {
-};
+// CardFeed.propTypes = {
+// };
 
 export default CardFeed;

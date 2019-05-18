@@ -30,64 +30,63 @@ class DeckItem extends Component {
     render() {
         const { deck, auth, showActions } = this.props;
         return (
-            <div className="card card-body mb-3">
-                <div className="row">
-                    <div className="col-md-2">
-                        {/* <a href="profile.html">
+            <div className="card-body px-2">
+                {/* <div className="row"> */}
+                    {/* <div className="col">
+                        <a href="profile.html">
                             <img
                                 className="rounded-circle d-none d-md-block"
                                 src={deck.avatar}
                                 alt=""
                             />
                         </a>
-                        <br /> */}
-                        {/* <p className="text-center">{deck.subject}</p> */}
-                    </div>
-                    <div className="col-md-10">
+                        <br />
                         <p className="text-center">{deck.subject}</p>
-                        <p className="text-center">{deck.description}</p>
-                        <p className="lead">{deck.cards.length}</p>
-                        {showActions ? (
-                            <span>
-                                <button
-                                    // onClick={this.onLikeClick.bind(this, deck._id)}
-                                    type="button"
-                                    className="btn btn-light mr-1"
-                                >
-                                    <i
-                                        className={classnames('fas fa-thumbs-up', {
-                                            'text-info': this.findUserLike(deck.likes)
-                                        })}
-                                    />
-                                    <span className="badge badge-light">{deck.likes.length}</span>
-                                </button>
-                                <button
-                                    // onClick={this.onUnlikeClick.bind(this, deck._id)}
-                                    type="button"
-                                    className="btn btn-light mr-1"
-                                >
-                                    <i className="text-secondary fas fa-thumbs-down" />
-                                </button>
-                                <Link to={ `/deck/${deck._id}` } className="btn btn-info mr-1">
-                                    View
-                                </Link>
-                                {/* <Link to={`/deck/${deck._id}`} className="btn btn-info mr-1">
-                                    Comments
-                                </Link> */}
-                                {deck.user === auth.user.id ? (
-                                    <button
-                                        onClick={this.onDeleteClick.bind(this, deck._id)}
-                                        type="button"
-                                        className="btn btn-danger mr-1"
-                                    >
-                                        <i className="fas fa-times" />
-                                    </button>
-                                ) : null}
-                            </span>
+                    </div> */}
+                <h2 className="subject font-weight-bold">{deck.subject}</h2>
+                <p className="description">{deck.description}</p>
+                <p className="card_count">card count: {deck.cards.length}</p>
+                {showActions ? (
+                    <span>
+                        <button
+                            // onClick={this.onLikeClick.bind(this, deck._id)}
+                            type="button"
+                            className="btn btn-light mr-1"
+                        >
+                            <i
+                                className={classnames('fas fa-thumbs-up', {
+                                    'text-info': this.findUserLike(deck.likes)
+                                })}
+                            />
+                            <span className="badge badge-light">{deck.likes.length}</span>
+                        </button>
+                        <button
+                            // onClick={this.onUnlikeClick.bind(this, deck._id)}
+                            type="button"
+                            className="btn btn-light mr-1"
+                        >
+                            <i className="text-secondary fas fa-thumbs-down" />
+                        </button>
+                        <Link to={ `/deck/${deck._id}` } className="btn btn-info mr-1">
+                            View
+                        </Link>
+                        {/* <Link to={`/deck/${deck._id}`} className="btn btn-info mr-1">
+                            Comments
+                        </Link> */}
+                        {deck.user === auth.user.id ? (
+                            <button
+                                onClick={this.onDeleteClick.bind(this, deck._id)}
+                                type="button"
+                                className="btn btn-danger mr-1"
+                            >
+                                <i className="fas fa-times" />
+                            </button>
                         ) : null}
-                    </div>
-                </div>
+                    </span>
+                ) : null}
             </div>
+            //     </div>
+            // </div>
         );
     }
 }

@@ -1,3 +1,17 @@
+/* font size scales with view */
+h1{
+  font-size: 6vw;
+}
+
+h2{
+  font-size: 4vw;
+}
+
+h3{
+  font-size: 2vw;
+}
+
+
 img {
   width: 100%;
 }
@@ -37,3 +51,14 @@ img {
 .form-control::placeholder {
   color: #bbb !important;
 }
+
+/* flexbox content */
+.deck-feed{
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+

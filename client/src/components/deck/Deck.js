@@ -45,9 +45,20 @@ class Deck extends Component {
             deckContent = <EditDeck deck={deck}/>
         }else{
             deckContent = (
-                <div>
-                    <DeckItem deck={deck} showActions={false} />
-                    {(deck.user === auth.user.id) ? <AddCard deck={deck} /> : null }
+                <div className="deck-view">
+                    <div className="row mb-2">
+                        <div className="col">
+                            <div className="card card-info h-100">
+                                <div className="card-header bg-info text-white">Deck Info</div>
+                                <div className="card-body">
+                                    <DeckItem deck={deck} showActions={false} />
+                                </div>
+                            </div>    
+                        </div>
+                        <div className="col">
+                            {(deck.user === auth.user.id) ? <AddCard deck={deck} /> : null }
+                        </div>
+                    </div>
                     <CardFeed deckId={deck._id} deckUser={deck.user} cards={deck.cards} />
                 </div>
             );
@@ -57,19 +68,15 @@ class Deck extends Component {
             editButton = edit === true ? "" : (<button className="btn btn-light mb-3" onClick={this.onClick}>Edit Deck</button>)
         }
         return (
-            <div className="deck">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-12">
-                            <Link to="/dashboard" className="btn btn-light mb-3">
-                                Back To dashboard
-                            </Link>
-                            { editButton }
-                            {deckContent}
-                        </div>
+                        <Link to="/dashboard" className="btn btn-light mb-3">
+                            Back To dashboard
+                        </Link>
+                        { editButton }
                     </div>
+                    { deckContent }
                 </div>
-            </div>
         );
     }
 }

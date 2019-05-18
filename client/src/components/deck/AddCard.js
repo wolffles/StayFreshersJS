@@ -52,8 +52,7 @@ class AddCard extends Component {
     
     
     return (
-      <div className="deck-form mb-3">
-        <div className="card card-info">
+        <div className="card card-info h-100">
           <div className="card-header bg-info text-white">Create a card</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
@@ -79,7 +78,6 @@ class AddCard extends Component {
             </form>
           </div>
         </div>
-      </div>
     );
   }
 }

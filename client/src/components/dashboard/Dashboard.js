@@ -33,20 +33,24 @@ class Dashboard extends Component {
       // Check if logged in user has profile data 
       dashboardContent = (
         <div>
-          <p className="lead text-muted"> Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></p>
-          <ProfileButtons />
-          Your Decks
-          <DeckFeed decks={decks}/>
-
-          <div style={{ marginBottom: '60px'}} />
-            <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger"> Delete My Account</button>
+          <div className="row">
+            <h2 className=""> Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></h2>
+            <ProfileButtons />
+          </div>
+          <div>
+            <h3 className="text-center">Your Decks</h3>
+            <div className="deck-feed">
+              <DeckFeed decks={decks}/>
+            </div>
+          </div>
+          <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger"> Delete My Account</button>
         </div>
       )
     }else {
       // User is logged in but has no profile 
       dashboardContent = (
         <div>
-          <p className="lead text-muted"> Welcome { user.name }</p>
+          <h2 className=""> Welcome { user.name }</h2>
           <p>You have not yet setup a profile, please add some info</p>
           <Link to="/create-profile" className="btn btn-lg btn-info">Create Profile</Link>
         </div>
@@ -57,12 +61,8 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <h1 className="display-4">Dashboard</h1>
-              {dashboardContent}
-            </div>
-          </div>
+          <h1>Dashboard</h1>
+          {dashboardContent}
         </div>
       </div>
     )

@@ -22,16 +22,10 @@ class Decks extends Component {
         }
 
         return (
-            <div className="feed">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            {/* <DeckForm /> */}
-                            {deckContent}
-                        </div>
-                    </div>
+                    {/* <DeckForm /> */}
+                    {deckContent}
                 </div>
-            </div>
         );
     }
 }

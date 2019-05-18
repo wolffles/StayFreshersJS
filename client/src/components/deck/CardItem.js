@@ -27,12 +27,12 @@ class CardItem extends Component {
         let displayEdit = (this.state.show) ? <EditCard show={this.onClick} deckId={deckId} card={card}/> : null
         if (deckUser === auth.user.id ){
             cardButtons = (
-                <div>
-                    <button onClick={this.onClick}>edit</button>
+                <div className="mx-auto">
+                    <button type="button" className="btn btn-dark mx-3" onClick={this.onClick}>edit</button>
                     <button
                         onClick={this.onDeleteClick.bind(this, deckId, card._id)}
                         type="button"
-                        className="btn btn-danger mr-1"
+                        className="btn btn-danger"
                     >
                         <i className="fas fa-times" />
                     </button>
@@ -41,12 +41,12 @@ class CardItem extends Component {
         }
 
         return (
-            <div className="card card-body mb-3">
-                <div className="row">            
-                    <p>{card.term} : {card.definition}</p> 
+            <div className="card card-body py-4 mb-3">
+                <div className="row mx-auto">            
+                    <p>{card.term} : {card.definition}</p>
+                </div>
                     {cardButtons}
                     {displayEdit}
-                </div>
             </div>
         );
     }
