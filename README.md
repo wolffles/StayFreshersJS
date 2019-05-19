@@ -6,11 +6,13 @@ Here the Nerds are the popular ones
 
 #USER STORIES
 CURRENTLY ( rush to production )
+  * find out how to pass parameters
   * get the ability to test the decks
+  * maybe have a static landing page.
   * landing page should show whats coming for the app. 
-  * try to use less default bootstrap looking UI
-  * and make the UI look production ready
-  * consider using a different DB
+  * try to use less default bootstrap looking UI ( working)
+  * and make the UI look production ready (working)
+  * consider using a different DB (not priority)
   * launch product to show off and continue to work on it.
 
 CURRENTLY ( working on front end )

@@ -19,7 +19,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/create-profile/CreateProfile';
 import EditProfile from './components/edit-profile/EditProfile';
 import AddDeck from './components/dashboard/AddDeck';
-// import AddCard from './components/deck/AddCard';
+import TrainDeck from './components/deck/TrainDeck'
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Decks from './components/decks/Decks';

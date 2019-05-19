@@ -13,3 +13,4 @@ export const ADD_DECK = "ADD_DECK";
 export const DELETE_DECK = "DELETE_DECK";
 export const CLEAR_DECK = "CLEAR_DECK";
 export const DECK_EDIT = "DECK_EDIT";
+export const STAY_FRESHER = "STAY_FRESHER";

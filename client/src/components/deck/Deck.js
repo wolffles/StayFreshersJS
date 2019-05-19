@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DeckItem from '../decks/DeckItem';
 import AddCard from './AddCard';
+import TrainDeck from './TrainDeck';
 // import CommentFeed from './CommentFeed';
 import CardFeed from './CardFeed';
 import Spinner from '../common/Spinner';
-import { getDeck, toggleEdit, clearDeck } from '../../actions/deckActions';
+import { getDeck, toggleEdit, clearDeck, toggleFreshers } from '../../actions/deckActions';
 import EditDeck from './EditDeck';
 
 class Deck extends Component {
@@ -16,7 +17,8 @@ class Deck extends Component {
         this.state = {
         };
 
-        this.onClick = this.onClick.bind(this);
+        this.onEditClick = this.onEditClick.bind(this);
+        this.onFreshersClick = this.onFreshersClick.bind(this);
     }
 
     componentWillMount(){
@@ -31,18 +33,24 @@ class Deck extends Component {
         this.props.clearDeck();
     }
 
-    onClick(e) {
+    onEditClick(e) {
         this.props.toggleEdit();
     }
 
+    onFreshersClick(e){
+        this.props.toggleFreshers();
+    }
+
     render() {
-        const {deck, loading, edit } = this.props.deck;
+        const {deck, loading, edit, fresher } = this.props.deck;
         const { auth } = this.props
         let deckContent;
         if (deck === null || loading || Object.keys(deck).length === 0) {
             deckContent = <Spinner />;
         } else if( edit === true){
             deckContent = <EditDeck deck={deck}/>
+        } else if(fresher === true){
+            deckContent = <TrainDeck deck={deck}/>
         }else{
             deckContent = (
                 <div className="deck-view">
@@ -65,15 +73,17 @@ class Deck extends Component {
         }
         let editButton;
         if (deck.user === auth.user.id){ 
-            editButton = edit === true ? "" : (<button className="btn btn-light mb-3" onClick={this.onClick}>Edit Deck</button>)
+            editButton = edit === true ? "" : (<button className="btn btn-light mb-3" onClick={this.onEditClick}>Edit Deck</button>)
         }
+        let freshers = (<button className="btn btn-light mb-3" onClick={this.onFreshersClick}>Freshen Up</button>)
         return (
                 <div className="container">
                     <div className="row">
-                        <Link to="/dashboard" className="btn btn-light mb-3">
+                        <Link to="/dashboard" className="btn btn-light">
                             Back To dashboard
                         </Link>
                         { editButton }
+                        { freshers }
                     </div>
                     { deckContent }
                 </div>
@@ -84,6 +94,7 @@ class Deck extends Component {
 Deck.propTypes = {
     clearDeck: PropTypes.func.isRequired,
     toggleEdit: PropTypes.func.isRequired,
+    toggleFreshers: PropTypes.func.isRequired,
     getDeck: PropTypes.func.isRequired,
     deck: PropTypes.object.isRequired
 };
@@ -93,4 +104,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, { clearDeck, getDeck, toggleEdit })(Deck);
+export default connect(mapStateToProps, { clearDeck, getDeck, toggleEdit, toggleFreshers })(Deck);

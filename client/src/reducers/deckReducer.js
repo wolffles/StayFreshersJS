@@ -5,14 +5,16 @@ import {
     DELETE_DECK,
     DECK_LOADING,
     DECK_EDIT,
-    CLEAR_DECK
+    CLEAR_DECK,
+    STAY_FRESHER
 } from '../actions/types';
 
 const initialState = {
     decks: [],
     deck: {},
     loading: false,
-    edit: false
+    edit: false,
+    fresher: false
 };
 
 export default function (state = initialState, action) {
@@ -53,6 +55,11 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 deck: {}
+            };
+        case STAY_FRESHER:
+            return {
+                ...state,
+                fresher: !state.fresher
             }
         default:
             return state;

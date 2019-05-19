@@ -9,7 +9,8 @@ import {
     DECK_LOADING,
     DELETE_DECK,
     CLEAR_DECK,
-    DECK_EDIT
+    DECK_EDIT,
+    STAY_FRESHER
 } from './types';
 
 // Add Deck
@@ -211,11 +212,19 @@ export const setDeckLoading = () => {
     };
 };
 
+
+
 export const toggleEdit = () => {
     return {
         type: DECK_EDIT
     };
 };
+
+export const toggleFreshers = () => {
+    return {
+        type: STAY_FRESHER
+    }
+}
 
 export const clearDeck = () => {
     return {

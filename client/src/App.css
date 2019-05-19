@@ -52,7 +52,7 @@ img {
   color: #bbb !important;
 }
 
-/* flexbox content */
+/* ----------------------------------------------flexbox content */
 .deck-feed{
   width: 100%;
   overflow: hidden;
@@ -62,3 +62,56 @@ img {
   justify-content: center;
 }
 
+/* ----------------------------------------------Stay Freshers Train    */
+.freshers-container {
+  cursor: pointer;
+  height: 400px;
+  width: 400px;
+  perspective: 800px;
+  /* position: relative; */
+  margin: auto;
+  transition: ease-in;
+}
+
+.freshers {
+  height: 410px;
+  width: 410px;
+  /* position: absolute; */
+  border: 3px solid #300;
+  transform-style: preserve-3d;
+  transition: all 0.4s ease-in-out;
+}
+
+.freshers:hover {
+  transform: rotateY(180deg);
+  transition: all 0.4s ease-in-out;
+}
+
+.freshers .term {
+  height: 400px;
+  width: 400px;
+  backface-visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(255, 251, 251, 1);
+}
+
+.freshers .definition {
+  height: 400px;
+  width: 400px;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+
+.term{
+  color: #333;
+  font-size: 2.3em;
+  padding-top: 40%;
+}
+
+.definition{
+  color: #333;
+  font-size: 6.3em;
+  padding-top: 20%;
+}
