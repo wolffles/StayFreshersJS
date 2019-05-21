@@ -6,7 +6,7 @@ const path = require('path') // part of nodejs
 const users = require("./routes/api/users");
 const decks = require("./routes/api/decks");
 const profile = require("./routes/api/profile");
-
+const actions = require("./routes/api/actions");
 
 const app = express();
 
@@ -33,6 +33,7 @@ require('./config/passport')(passport);
 app.use('/api/users', users);
 app.use('/api/decks', decks);
 app.use('/api/profile', profile);
+app.use('/api/actions', actions);
 // if none of these api routes are being hit, look for index
 // Server static assets if in production
 if(process.env.NODE_ENV === 'production') {
@@ -49,4 +50,4 @@ const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
-module.exports = app
+module.exports = app 

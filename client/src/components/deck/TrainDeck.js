@@ -52,8 +52,10 @@ class TrainDeck extends Component {
     console.log(this.state)
     return (
       <div className="freshers-contianer">
-            <TrainCard card={this.state.currentCard} />
-          <button className='btn' onClick={this.getNextCard}>next</button>
+          <TrainCard card={this.state.currentCard} />
+          <div className="freshers-control">
+            <button className='btn freshers-next' onClick={this.getNextCard}>next</button>
+          </div>
       </div>
     )
   }

@@ -13,13 +13,13 @@ import PrivateRoute from './components/common/PrivateRoute';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
+import Future from './components/layout/Future'
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/create-profile/CreateProfile';
 import EditProfile from './components/edit-profile/EditProfile';
 import AddDeck from './components/dashboard/AddDeck';
-import TrainDeck from './components/deck/TrainDeck'
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Decks from './components/decks/Decks';
@@ -58,6 +58,7 @@ class App extends Component {
             <Navbar />
             <Route exact path="/" component={Landing} />
             <div className="container">
+              <Route exact path="/looking-ahead" component={Future} /> 
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/profiles" component={Profiles} />
@@ -77,9 +78,6 @@ class App extends Component {
               <Switch>
               <PrivateRoute exact path="/edit-deck" component={EditDeck} />
               </Switch>
-              {/* <Switch>
-                <PrivateRoute exact path="/add-card" component={AddCard} />
-              </Switch> */}
               <Switch>
                 <PrivateRoute exact path="/deck/:id" component={Deck} />
               </Switch>

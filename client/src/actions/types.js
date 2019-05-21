@@ -14,3 +14,7 @@ export const DELETE_DECK = "DELETE_DECK";
 export const CLEAR_DECK = "CLEAR_DECK";
 export const DECK_EDIT = "DECK_EDIT";
 export const STAY_FRESHER = "STAY_FRESHER";
+export const ADD_FEEDBACK = "ADD_FEEDBACK";
+export const GET_FEEDBACK = "GETFEEDBACK";
+export const FEEDBACK_LOADING = "FEEDBACK_LOADING";
+
