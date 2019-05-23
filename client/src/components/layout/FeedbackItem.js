@@ -11,7 +11,7 @@ class CommentItem extends Component {
   render() {
     const { item, auth } = this.props;
     return (
-      <div className="card card-body mb-3">
+      <div className="feedback card card-body mb-3">
         <div className="row">
           <div className="col-md-2">
             <a href="profile.html">
@@ -22,7 +22,7 @@ class CommentItem extends Component {
               />
             </a>
             <br />
-            <p className="text-center">{item.name}</p>
+            <p className="feedback-name">{item.name}</p>
           </div>
           <div className="col-md-10">
             <p className="lead">{item.feedback}</p>
@@ -30,7 +30,7 @@ class CommentItem extends Component {
               <button
                 onClick={this.onDeleteClick.bind(this, item._id)}
                 type="button"
-                className="btn btn-danger mr-1"
+                className="float-right btn btn-danger mr-1"
               >
                 <i className="fas fa-times" />
               </button>

@@ -34,18 +34,18 @@ class Profile extends Component {
         <div>
           <div className="row">
             <div className="col-md-6">
-              <Link to="/profiles" className="btn btn-light mb-3 float-left">
+              {/* <Link to="/profiles" className="btn btn-light mb-3 float-left">
                 Back To Profiles
-              </Link>
+              </Link> */}
             </div>
             <div className="col-md-6" />
           </div>
           <ProfileHeader profile={profile} />
           <ProfileAbout profile={profile} />
-          <ProfileCreds
+          {/*<ProfileCreds
             education={profile.education}
             experience={profile.experience}
-          />
+          /> */}
           {profile.githubusername ? (
             <ProfileGithub username={profile.githubusername} />
           ) : null}

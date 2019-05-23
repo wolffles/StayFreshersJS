@@ -49,15 +49,17 @@ class Future extends Component {
     return (
       <div className="future">
         <h1 className="text-center">Coming Soon</h1>
-        <ul>
-          <li>Users will be able to add friends</li>
-          <li>Like peoples decks</li>
+        <ul className="feedback mb-4 text-center">
+          <li>Better Profile features</li>
+          <li>The ability to add friends</li>
+          <li>Comment on decks</li>
+          <li>Clone a deck to own the deck</li>
         </ul>
 
 
-        <h1 className="text-center"> Leave some feed back</h1>
+        <h1 className="text-center"> Love/Hate it? Got bugs? Leave some feedback </h1>
           <FeedbackFeed feedback={feedback} />
-          <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit} className="feedback">
             <TextAreaFieldGroup 
               placeholder="Is there anything I can do to make your experience better?"
               name="feedback"

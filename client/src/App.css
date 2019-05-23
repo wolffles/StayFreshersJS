@@ -16,7 +16,7 @@ img {
   width: 100%;
 }
 
-
+/* ----------------------------------------------- app themes */
 .landing {
   position: relative;
   background: url('./img/showcase.jpg') no-repeat;
@@ -53,7 +53,7 @@ img {
   color: #bbb !important;
 }
 
-/* ----------------------------------------------flexbox content */
+/* ---------------------------------------------- dashboard flexbox content */
 .deck-feed{
   width: 100%;
   overflow: hidden;
@@ -63,14 +63,14 @@ img {
   justify-content: center;
 }
 
-/* ----------------------------------------------Stay Freshers Train    */
+/* ---------------------------------------------- freshen up animation   */
 .freshers-container {
   perspective: 1000px;
 }
 
 .freshers {
   height: 60vh;
-  width: 60%;
+  width: 80%;
   border: 3px solid #300;
   transform-style: preserve-3d;
   transition: all 0.6s ease-in-out;
@@ -117,4 +117,19 @@ img {
 .freshers-next {
   background: grey;
   margin:auto;
+}
+
+/* ------------------------------------------------Future's page */
+.feedback{
+  width: 80%;
+  margin: auto;
+}
+
+ul{
+  list-style-type: none;
+}
+
+.feedback-name{
+  font-size: 1.5vw;
+  text-align: center;
 }

@@ -50,13 +50,13 @@ class TrainDeck extends Component {
     this.setState({
       currentCard: this.state.cards[this.state.index +1],
       index: this.state.index+1,
-      overflow_term: this.overflow(this.state.cards[index].term),
-      overflow_definition: this.overflow(this.state.cards[index].definition)
+      overflow_term: this.overflow(this.state.cards[index+1].term),
+      overflow_definition: this.overflow(this.state.cards[index+1].definition)
     })
   }
 
   overflow(string) {
-     return string.length > 130 ? "oversized" : "" 
+     return string.length > 140 ? "oversized" : "" 
   }
     
 

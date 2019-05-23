@@ -82,11 +82,11 @@ class Deck extends Component {
         if (deck.user === auth.user.id){ 
             editButton = edit === true ? "" : (<button className="btn btn-light mb-3" onClick={this.onEditClick}>Edit Deck</button>)
         }
-        let freshers = (<button className="btn btn-light mb-3" onClick={this.onFreshersClick}>Freshen Up</button>)
+        let freshers = (<button className="btn btn-success mb-3" onClick={this.onFreshersClick}>Freshen Up</button>)
         return (
                 <div className="container">
                     <div className="row">
-                        <Link to="/dashboard" className="btn btn-light">
+                        <Link to="/dashboard" className="btn btn-light mb-3">
                             Back To dashboard
                         </Link>
                         { editButton }
