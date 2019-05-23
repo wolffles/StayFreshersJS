@@ -10,13 +10,13 @@ class DeckItem extends Component {
         this.props.deleteDeck(id);
     }
 
-    // onLikeClick(id) {
-    //     this.props.addLike(id);
-    // }
+    onLikeClick(id) {
+        this.props.addLike(id);
+    }
 
-    // onUnlikeClick(id) {
-    //     this.props.removeLike(id);
-    // }
+    onUnlikeClick(id) {
+        this.props.removeLike(id);
+    }
 
     findUserLike(likes) {
         const { auth } = this.props;
@@ -30,7 +30,7 @@ class DeckItem extends Component {
     render() {
         const { deck, auth, showActions } = this.props;
         return (
-            <div className="card-body px-2">
+                <div className="card p-4 m-2 text-center">
                 {/* <div className="row"> */}
                     {/* <div className="col">
                         <a href="profile.html">
@@ -49,7 +49,7 @@ class DeckItem extends Component {
                 {showActions ? (
                     <span>
                         <button
-                            // onClick={this.onLikeClick.bind(this, deck._id)}
+                            onClick={this.onLikeClick.bind(this, deck._id)}
                             type="button"
                             className="btn btn-light mr-1"
                         >
@@ -61,7 +61,7 @@ class DeckItem extends Component {
                             <span className="badge badge-light">{deck.likes.length}</span>
                         </button>
                         <button
-                            // onClick={this.onUnlikeClick.bind(this, deck._id)}
+                            onClick={this.onUnlikeClick.bind(this, deck._id)}
                             type="button"
                             className="btn btn-light mr-1"
                         >
@@ -97,8 +97,8 @@ DeckItem.defaultProps = {
 
 DeckItem.propTypes = {
     deleteDeck: PropTypes.func.isRequired,
-    // addLike: PropTypes.func.isRequired,
-    // removeLike: PropTypes.func.isRequired,
+    addLike: PropTypes.func.isRequired,
+    removeLike: PropTypes.func.isRequired,
     deck: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired
 };

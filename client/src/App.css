@@ -89,27 +89,30 @@ img {
   backface-visibility: hidden;
   position: absolute;
   overflow: hidden;
-  background-color: rgb(167, 14, 14);
+  background-color: grey(167, 14, 14);
+  justify-content: center;
   text-align: center;
-  font-size: 10vh;
+  align-items: center;
+  display:flex;
 }
 
-
 .term{
-  /* z-index:2; */
-  /* padding-top: ; */
-  transform:rotateY(0deg)
+  transform:rotateY(0deg);
+  font-size: 5vmin;
 }
 
 .definition{
-  transform: rotateY(180deg);  
-  /* padding-top: ; */
+  transform: rotateY(180deg);
+  font-size: 5vmin; 
 }
 
+.oversized{
+  font-size: 1rem;
+}
 
 .freshers-control {
   width: 100%;
-  background: beige;
+  /* background: beige; */
 }
 .freshers-next {
   background: grey;

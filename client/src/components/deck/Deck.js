@@ -30,6 +30,9 @@ class Deck extends Component {
         if(this.props.deck.edit === true){
             this.props.toggleEdit();
         }
+        if(this.props.deck.fresher == true){
+            this.props.toggleFreshers();
+        }
         this.props.clearDeck();
     }
 
@@ -50,7 +53,11 @@ class Deck extends Component {
         } else if( edit === true){
             deckContent = <EditDeck deck={deck}/>
         } else if(fresher === true){
-            deckContent = <TrainDeck deck={deck}/>
+            if (deck.cards.length > 0){
+                deckContent = <TrainDeck deck={deck}/>
+            }else {
+                deckContent = "you dont have any cards to train"
+            }
         }else{
             deckContent = (
                 <div className="deck-view">

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { deleteComment } from '../../actions/deckActions';
+import { deleteFeedback } from '../../actions/actionActions';
 
 class CommentItem extends Component {
-  // onDeleteClick(deckId, itemId) {
-  //   this.props.deleteComment(deckId, itemId);
-  // }
+  onDeleteClick(feedbackID) {
+    this.props.deleteFeedback(feedbackID);
+  }
 
   render() {
     const { item, auth } = this.props;
-
     return (
       <div className="card card-body mb-3">
         <div className="row">
@@ -27,15 +26,15 @@ class CommentItem extends Component {
           </div>
           <div className="col-md-10">
             <p className="lead">{item.feedback}</p>
-            {/* {item.user === auth.user.id ? (
+            {item.user === auth.user.id ? (
               <button
-                onClick={this.onDeleteClick.bind(this, deckId, item._id)}
+                onClick={this.onDeleteClick.bind(this, item._id)}
                 type="button"
                 className="btn btn-danger mr-1"
               >
                 <i className="fas fa-times" />
               </button>
-            ) : null} */}
+            ) : null}
           </div>
         </div>
       </div>
@@ -44,7 +43,7 @@ class CommentItem extends Component {
 }
 
 CommentItem.propTypes = {
-  // deleteComment: PropTypes.func.isRequired,
+  deleteFeedback: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
@@ -53,4 +52,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { })(CommentItem);
+export default connect(mapStateToProps, { deleteFeedback })(CommentItem);

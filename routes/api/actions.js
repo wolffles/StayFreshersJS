@@ -8,7 +8,7 @@ router.get('/', (req,res) => {
   Feedback.find()
     .sort({date:-1})
     .then(feedback => res.json(feedback))
-    .catch( err => res.status(404).json({nofeedback: "No feedback found"}))
+    .catch(err => res.status(404).json({nofeedback: "No feedback found"}))
 })
 
 router.post('/', passport.authenticate('jwt', {session:false}), (req,res) => {
@@ -19,7 +19,15 @@ router.post('/', passport.authenticate('jwt', {session:false}), (req,res) => {
     feedback: req.body.feedback,
     avatar: req.body.avatar
   })
-  newFeedback.save().then(result => res.json(result))
+  newFeedback.save().then(result => {
+    res.json(result)
+  })
+})
+
+router.delete('/:feedback_id', passport.authenticate('jwt', { session: false }), (req, res)=>{
+  Feedback.findByIdAndDelete(req.params.feedback_id)
+    .then(() => res.json({msg: "Feedback Deleted"}))
+    .catch(err => res.status(404).json({nofeedback: "No feedbackfound"}))
 })
 
 module.exports = router

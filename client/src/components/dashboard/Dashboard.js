@@ -74,8 +74,7 @@ Dashboard.propTypes = {
   getUserDecks: PropTypes.func.isRequired,
   deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired,
-  deck: PropTypes.object.isRequried
+  profile: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

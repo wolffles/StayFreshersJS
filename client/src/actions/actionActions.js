@@ -5,7 +5,8 @@ import{
   ADD_FEEDBACK,
   GET_ERRORS,
   CLEAR_ERRORS,
-  FEEDBACK_LOADING
+  FEEDBACK_LOADING,
+  DELETE_FEEDBACK
 } from './types'
 
 export const addFeedback = (feedback) => dispatch =>{
@@ -40,6 +41,21 @@ export const getFeedback = () => dispatch => {
     payload: null
   }))
 };
+
+//delete feedback
+export const deleteFeedback =(feedbackId) => dispatch => {
+  axios
+    .delete('/api/actions/'+feedbackId)
+    .then(res => 
+      dispatch({
+        type: DELETE_FEEDBACK,
+        payload: feedbackId
+      }))
+      .catch(err => dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      }))
+}
 
 // Set loading state
 export const setFeedbackLoading = () => {

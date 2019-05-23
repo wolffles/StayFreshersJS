@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { connect } from 'react-redux';
-import { addFeedback, getFeedback } from '../../actions/appActions'
+import { addFeedback, getFeedback } from '../../actions/actionActions'
 import PropTypes from 'prop-types'
 import FeedbackFeed from './FeedbackFeed';
+import {getCurrentProfile} from '../../actions/profileActions';
 
 class Future extends Component {
   constructor(props) {
@@ -18,8 +19,9 @@ class Future extends Component {
 
   componentDidMount(){
     this.props.getFeedback()
-    console.log(this.props.auth)
-    console.log(this.props.profile)
+    if (this.props.auth) {
+      this.props.getCurrentProfile()
+    }
   }
 
   onSubmit(e) {
@@ -43,7 +45,7 @@ class Future extends Component {
   render() {
     const { errors } = this.state;
     const { feedback } = this.props.actions
-    // console.log("actions", this.props.actions)
+
     return (
       <div className="future">
         <h1 className="text-center">Coming Soon</h1>
@@ -57,7 +59,7 @@ class Future extends Component {
           <FeedbackFeed feedback={feedback} />
           <form onSubmit={this.onSubmit}>
             <TextAreaFieldGroup 
-              placeholder="Is there Anything I can do to make your experience better?"
+              placeholder="Is there anything I can do to make your experience better?"
               name="feedback"
               value={this.state.feedback}
               onChange={this.onChange}
@@ -72,7 +74,8 @@ class Future extends Component {
 }
 Future.propTypes = {
   addFeedback: PropTypes.func.isRequired,
-  getFeedback: PropTypes.func.isRequired
+  getFeedback: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -82,4 +85,4 @@ const mapStateToProps = state => ({
   profile: state.profile
 })
 
-export default connect(mapStateToProps, {addFeedback,getFeedback})(Future);
+export default connect(mapStateToProps, {getCurrentProfile, addFeedback, getFeedback})(Future);

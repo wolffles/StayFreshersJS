@@ -6,10 +6,10 @@ Here the Nerds are the popular ones
 
 #USER STORIES
 CURRENTLY ( rush to production )
-  * find out how to pass parameters
+  * fix profile not loading. on future page and err.response.data in actionActions.js
   * get the ability to test the decks
   * maybe have a static landing page.
-  * landing page should show whats coming for the app. 
+  * landing page should show whats coming for the app. (done)
   * try to use less default bootstrap looking UI ( working)
   * and make the UI look production ready (working)
   * consider using a different DB (not priority)
