@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { deleteDeck, addLike, removeLike } from '../../actions/deckActions';
+import { deleteDeck, toggleLike, toggleDislike } from '../../actions/deckActions';
 
 class DeckItem extends Component {
     onDeleteClick(id) {
@@ -11,11 +11,11 @@ class DeckItem extends Component {
     }
 
     onLikeClick(id) {
-        this.props.addLike(id);
+        this.props.toggleLike(id);
     }
 
-    onUnlikeClick(id) {
-        this.props.removeLike(id);
+    onDislikeClick(id) {
+        this.props.toggleDislike(id);
     }
 
     findUserLike(likes) {
@@ -28,7 +28,31 @@ class DeckItem extends Component {
     }
 
     render() {
-        const { deck, auth, showActions } = this.props;
+        const { deck, auth, showActions, dashboard } = this.props;
+        const likeDisBtns = (
+            <div>
+                <button
+                    onClick={this.onLikeClick.bind(this, deck._id)}
+                    type="button"
+                    className="btn btn-light mr-1"
+                >
+                    <i
+                        className={classnames('fas fa-thumbs-up', {
+                            'text-info': this.findUserLike(deck.likes)
+                        })}
+                    />
+                    <span className="badge badge-light">{deck.likes.length}</span>
+                </button>
+                <button
+                    onClick={this.onDislikeClick.bind(this, deck._id)}
+                    type="button"
+                    className="btn btn-light mr-1"
+                >
+                    <i className="text-secondary fas fa-thumbs-down" />
+                    <span className="badge badge-light">{deck.dislikes.length}</span>
+                </button>
+            </div>
+        )
         return (
                 <div className="card p-4 m-2 text-center">
                 {/* <div className="row"> */}
@@ -48,25 +72,7 @@ class DeckItem extends Component {
                 <p className="card_count">card count: {deck.cards.length}</p>
                 {showActions ? (
                     <span>
-                        <button
-                            onClick={this.onLikeClick.bind(this, deck._id)}
-                            type="button"
-                            className="btn btn-light mr-1"
-                        >
-                            <i
-                                className={classnames('fas fa-thumbs-up', {
-                                    'text-info': this.findUserLike(deck.likes)
-                                })}
-                            />
-                            <span className="badge badge-light">{deck.likes.length}</span>
-                        </button>
-                        <button
-                            onClick={this.onUnlikeClick.bind(this, deck._id)}
-                            type="button"
-                            className="btn btn-light mr-1"
-                        >
-                            <i className="text-secondary fas fa-thumbs-down" />
-                        </button>
+                        {dashboard ? "" : likeDisBtns}
                         <Link to={ `/deck/${deck._id}` } className="btn btn-info mr-1">
                             View
                         </Link>
@@ -92,13 +98,15 @@ class DeckItem extends Component {
 }
 
 DeckItem.defaultProps = {
-    showActions: true
+    showActions: true,
+    dashboard: false
 };
 
 DeckItem.propTypes = {
     deleteDeck: PropTypes.func.isRequired,
-    addLike: PropTypes.func.isRequired,
-    removeLike: PropTypes.func.isRequired,
+    toggleLike: PropTypes.func.isRequired,
+    toggleDislike: PropTypes.func.isRequired,
+    // removeLike: PropTypes.func.isRequired,
     deck: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired
 };
@@ -107,6 +115,6 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, { deleteDeck, addLike, removeLike })(
+export default connect(mapStateToProps, { deleteDeck, toggleLike, toggleDislike })(
     DeckItem
 );

@@ -4,13 +4,24 @@ import DeckItem from './DeckItem';
 
 class DeckFeed extends Component {
     render() {
-        const { decks } = this.props;
+        const { decks, dashboard } = this.props;
+        console.log("dash", dashboard)
         if (decks.length < 1){
             return <div> You haven't created anything! </div>
         }else{
-            return decks.map(deck => <DeckItem key={deck._id} deck={deck} />);
+            let statement;
+            if (dashboard) {
+                statement = (decks.map(deck => <DeckItem key={deck._id} deck={deck} dashboard={dashboard} />))
+            } else {
+                statement = ((decks.map(deck => <DeckItem key={deck._id} deck={deck} />)))
+            }
+            return statement
         }
     }
+}
+
+DeckFeed.defaultProp = {
+    dashboard: false
 }
 
 DeckFeed.propTypes = {

@@ -169,20 +169,75 @@ router.post(
     '/like/:id',
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        Profile.findOne({ user: req.user.id }).then(profile => {
-            Deck.findById(req.params.id)
-                .then(deck => {
-                    if(deck.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
-                        return res.status(400).json({ alreadyliked: 'User already liked this deck' });
+        Deck.findById(req.params.id)
+            .then(deck => {
+                if(deck.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
+                    // removes like if already liked
+                    // Get remove index
+                    const removeIndex = deck.likes
+                        .map(item => item.user.toString())
+                        .indexOf(req.user.id);
+                    //Splice out of array
+                    deck.likes.splice(removeIndex, 1);
+                    deck.save().then(deck => res.json(deck));
+                }else{
+                    // check if disliked has been toggled
+                    if (deck.dislikes.filter(dislike => dislike.user.toString() === req.user.id).length > 0) {
+                        // Get remove index
+                        const removeIndex = deck.dislikes
+                            .map(item => item.user.toString())
+                            .indexOf(req.user.id);
+                        //Splice out of array
+                        deck.dislikes.splice(removeIndex, 1);
                     }
                     //add user id to the likes array.
                     deck.likes.unshift({ user: req.user.id});
                     deck.save().then(deck => res.json(deck))
+                }
+            })
+            .catch(err => res.status(404).json({ decknotfound: 'No deck found' }));
+    });
+
+//@route    POST api/decks/dislike/:id
+//@desc     Dislike deck
+//@access   private
+router.post(
+    '/dislike/:id',
+    passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        Profile.findOne({ user: req.user.id }).then(profile => {
+            Deck.findById(req.params.id)
+                .then(deck => {
+                    if (deck.dislikes.filter(dislike => dislike.user.toString() === req.user.id).length > 0) {
+                        //remove dislike
+                        // Get remove index
+                        let removeIndex = deck.dislikes
+                            .map(item => item.user.toString())
+                            .indexOf(req.user.id);
+
+                        //Splice out of array
+                        deck.dislikes.splice(removeIndex, 1);
+                        deck.save().then(deck => res.json(deck));
+                    }else{
+                        // check if like has been toggled
+                        if (deck.likes.filter(like => like.user.toString() === req.user.id).length > 0) {
+                            // Get remove index
+                            let removeIndex = deck.likes
+                                .map(item => item.user.toString())
+                                .indexOf(req.user.id);
+                            //Splice out of array
+                            deck.likes.splice(removeIndex, 1);
+                        }
+                        //add user id to the likes array.
+                        deck.dislikes.unshift({ user: req.user.id });
+                        deck.save().then(deck => res.json(deck))
+                    }
                 })
                 .catch(err => res.status(404).json({ decknotfound: 'No deck found' }));
         });
     }
 );
+
 //@route    POST api/decks/unlike/:id
 //@desc     unlike deck
 //@access   private
@@ -194,12 +249,12 @@ router.post(
             Deck.findById(req.params.id)
                 .then(deck => {
                     if (deck.likes.filter(like => like.user.toString() === req.user.id).length === 0) {
-                        return res.status(400).json({ notliked:'You have not liked this deck' });
+                        return res.status(400).json({ notliked: 'You have not liked this deck' });
                     }
                     // Get remove index
                     const removeIndex = deck.likes
-                    .map(item => item.user.toString())
-                    .indexOf(req.user.id);
+                        .map(item => item.user.toString())
+                        .indexOf(req.user.id);
 
                     //Splice out of array
                     deck.likes.splice(removeIndex, 1);
@@ -209,6 +264,7 @@ router.post(
         });
     }
 );
+
 
 //@route    POST api/decks/comment/:deck_id
 //@desc     Add comment to deck

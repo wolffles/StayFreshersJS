@@ -44,6 +44,7 @@ export default function (state = initialState, action) {
         case ADD_DECK:
             return {
                 ...state,
+                decks: state.decks.map(ele => ele._id === action.payload._id ? action.payload : ele),
                 deck: action.payload
             };
         case DELETE_DECK:

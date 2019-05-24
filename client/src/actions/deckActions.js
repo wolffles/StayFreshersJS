@@ -143,10 +143,32 @@ export const deleteDeck = id => dispatch => {
 };
 
 // Add Like
-export const addLike = id => dispatch => {
+export const toggleLike = id => dispatch => {
     axios
         .post(`/api/decks/like/${id}`)
-        .then(res => dispatch(getDecks()))
+        .then(res => 
+            dispatch({
+                type: ADD_DECK,
+                payload: res.data
+            })
+        )
+        .catch(err =>
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })
+        );
+};
+
+export const toggleDislike = id => dispatch => {
+    axios
+        .post(`/api/decks/dislike/${id}`)
+        .then(res => 
+            dispatch({
+                type: ADD_DECK,
+                payload: res.data
+            })
+        )
         .catch(err =>
             dispatch({
                 type: GET_ERRORS,

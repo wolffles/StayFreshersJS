@@ -40,7 +40,7 @@ class Dashboard extends Component {
           <div>
             <h3 className="text-center">Your Decks</h3>
             <div className="deck-feed">
-              <DeckFeed decks={decks}/>
+              <DeckFeed decks={decks} dashboard={true}/>
             </div>
           </div>
           <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger"> Delete My Account</button>
