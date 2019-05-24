@@ -17,8 +17,6 @@ app.use(express.urlencoded({ extended: false }));
 
 //DB config
 const db = require('./config/keys').mongoURI
-console.log("pather", db)
-console.log("zebra", process.NODE_ENV)
 //Connect to MongoDB
 mongoose.connect(db, {useNewUrlParser:true})
     .then(()=> console.log('mongodb connected'))
@@ -51,4 +49,4 @@ const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
-// module.exports = app
+module.exports = app
