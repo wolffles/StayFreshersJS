@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import propTypes from 'prop-types';
+// import propTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 class TrainCard extends Component {
@@ -31,9 +31,9 @@ class TrainCard extends Component {
     )
   }
 }
-
-TrainCard.propTypes = {
-}
+// 
+// TrainCard.propTypes = {
+// }
 const mapStateToProps = state => ({
 
 })

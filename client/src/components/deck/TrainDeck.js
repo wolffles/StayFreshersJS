@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TrainCard from './TrainCard';
-import propTypes from 'prop-types';
+// import propTypes from 'prop-types';
 
 
 class TrainDeck extends Component {

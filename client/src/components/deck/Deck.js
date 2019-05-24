@@ -30,7 +30,7 @@ class Deck extends Component {
         if(this.props.deck.edit === true){
             this.props.toggleEdit();
         }
-        if(this.props.deck.fresher == true){
+        if(this.props.deck.fresher === true){
             this.props.toggleFreshers();
         }
         this.props.clearDeck();
