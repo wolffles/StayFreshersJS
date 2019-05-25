@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import DeckForm from './DeckForm';
-import DeckFeed from './DeckFeed';
+import {getDecks} from '../../actions/deckActions'
+import DeckFeed from '../deck/DeckFeed';
 import Spinner from '../common/Spinner';
-import { getDecks } from '../../actions/deckActions';
+import Sort from './Sort';
+
 
 class Decks extends Component {
+
     componentDidMount() {
         this.props.getDecks();
     }
@@ -20,10 +22,9 @@ class Decks extends Component {
         } else {
             deckContent = <DeckFeed decks={decks} />;
         }
-
         return (
                 <div className="container">
-                    {/* <DeckForm /> */}
+                    <Sort />
                     {deckContent}
                 </div>
         );

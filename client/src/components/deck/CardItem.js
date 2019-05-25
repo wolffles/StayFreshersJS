@@ -18,7 +18,6 @@ class CardItem extends Component {
 
     onClick(){
         this.setState({ show: !this.state.show })
-        console.log(this.state.show)
     }
 
     render() {

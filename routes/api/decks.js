@@ -15,9 +15,11 @@ const validateCardInput = require('../../validation/card');
 //@route    GET api/decks
 //@desc     gets all decks
 //@access   public 
-router.get('/', (req, res) => {
+router.get('/:attribute.:order', (req, res) => {
+    const obj = {}
+    obj[req.params.attribute] = req.params.order
     Deck.find()
-        .sort({ date: -1})
+        .sort(obj)
         .then(decks => res.json(decks))
         .catch( err => res.status(404).json({nodecksfound: "No decks found"}));
 });

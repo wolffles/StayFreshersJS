@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import DeckItem from '../decks/DeckItem';
+import DeckItem from './DeckItem';
 import AddCard from './AddCard';
 import TrainDeck from './TrainDeck';
 // import CommentFeed from './CommentFeed';

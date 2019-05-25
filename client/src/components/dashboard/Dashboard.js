@@ -8,7 +8,7 @@ import Spinner from '../common/Spinner';
 import ProfileButtons from './ProfileButtons'
 // import Experience from './Experience'
 // import Education from './Education'
-import DeckFeed from '../decks/DeckFeed'
+import DeckFeed from '../deck/DeckFeed'
 class Dashboard extends Component {
   componentDidMount(){
     this.props.getCurrentProfile()

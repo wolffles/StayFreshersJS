@@ -22,7 +22,7 @@ import EditProfile from './components/edit-profile/EditProfile';
 import AddDeck from './components/dashboard/AddDeck';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
-import Decks from './components/decks/Decks';
+import Explore from './components/explore/Explore';
 import Deck from './components/deck/Deck';
 import EditDeck from './components/deck/EditDeck';
 import NotFound from './components/not-found/NotFound';
@@ -82,7 +82,7 @@ class App extends Component {
                 <PrivateRoute exact path="/deck/:id" component={Deck} />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/feed" component={Decks} />
+                <PrivateRoute exact path="/explore" component={Explore} />
               </Switch>
               <Route exact path="/not-found" component={NotFound} />
             </div>

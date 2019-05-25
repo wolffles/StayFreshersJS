@@ -5,7 +5,6 @@ import DeckItem from './DeckItem';
 class DeckFeed extends Component {
     render() {
         const { decks, dashboard } = this.props;
-        console.log("dash", dashboard)
         if (decks.length < 1){
             return <div> You haven't created anything! </div>
         }else{

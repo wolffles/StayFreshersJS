@@ -69,10 +69,10 @@ export const deleteCard = (deckId, cardId) => dispatch => {
 };
 
 // Get Decks
-export const getDecks = () => dispatch => {
+export const getDecks = (attribute='likes', order=-1) => dispatch => {
     dispatch(setDeckLoading());
     axios
-        .get('/api/decks')
+        .get(`/api/decks/${attribute}.${order}`)
         .then(res =>
             dispatch({
                 type: GET_DECKS,
