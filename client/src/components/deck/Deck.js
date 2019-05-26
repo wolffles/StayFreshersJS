@@ -78,11 +78,26 @@ class Deck extends Component {
                 </div>
             );
         }
+        // reactive edit and fresh buttons
         let editButton;
+        let freshButton;
         if (deck.user === auth.user.id){ 
-            editButton = edit === true ? "" : (<button className="btn btn-light mb-3" onClick={this.onEditClick}>Edit Deck</button>)
+            if( edit === true ){ 
+                editButton = (<button className="btn btn-light mb-3" onClick={this.onEditClick}>Back</button>) 
+            } else {
+                editButton = (<button className="btn btn-light mb-3" onClick={this.onEditClick}>Edit Deck</button>)
+            }
         }
-        let freshers = (<button className="btn btn-success mb-3" onClick={this.onFreshersClick}>Freshen Up</button>)
+        if (edit === true) {
+            freshButton = ''
+        }   else {
+            if (fresher === true) {
+                freshButton = (<button className="btn btn-warning mb-3" onClick={this.onFreshersClick}>fresh enough</button>)
+                editButton = ''
+            } else {
+                freshButton = (<button className="btn btn-success mb-3" onClick={this.onFreshersClick}>Freshen Up</button>)
+            }
+        }
         return (
                 <div className="container">
                     <div className="row">
@@ -90,7 +105,7 @@ class Deck extends Component {
                             Back To dashboard
                         </Link>
                         { editButton }
-                        { freshers }
+                        { freshButton }
                     </div>
                     { deckContent }
                 </div>

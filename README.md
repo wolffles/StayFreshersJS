@@ -7,13 +7,8 @@ Here the Nerds are the popular ones
 #USER STORIES
 CURRENTLY ( rush to production )
   * fix profile not loading. on future page and err.response.data in actionActions.js
-  * get the ability to test the decks
   * maybe have a static landing page.
-  * landing page should show whats coming for the app. (done)
-  * try to use less default bootstrap looking UI ( working)
-  * and make the UI look production ready (working)
-  * consider using a different DB (not priority)
-  * launch product to show off and continue to work on it.
+  * stayfreshers home page should be different than landing page. when you click on the brand, takes you to how to use. future tab should be something else
 
 CURRENTLY ( working on front end )
   * users need to be able to view others profiles

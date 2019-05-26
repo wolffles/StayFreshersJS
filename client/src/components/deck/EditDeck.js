@@ -32,10 +32,6 @@ class EditDeck extends Component {
     }
   }
 
-  componentWillUnmount() {
-    this.props.clearDeck();
-  }
-
   onSubmit(e) {
     e.preventDefault();
 

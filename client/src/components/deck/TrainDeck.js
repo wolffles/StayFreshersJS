@@ -62,11 +62,14 @@ class TrainDeck extends Component {
 
   render() {
     return (
-      <div className="freshers-contianer">
+      <div className="freshers-container">
+          <button className='btn freshers-back my-2' onClick={this.getNextCard}> &laquo; </button>
           <TrainCard term={this.state.overflow_term} definition={this.state.overflow_definition} card={this.state.currentCard} />
-          <div className="freshers-control">
+          <button className='btn freshers-next my-2' onClick={this.getNextCard}> &raquo; </button>
+
+          {/* <div className="freshers-control">
             <button className='btn freshers-next' onClick={this.getNextCard}>next</button>
-          </div>
+          </div> */}
       </div>
     )
   }

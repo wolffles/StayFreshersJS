@@ -53,6 +53,14 @@ img {
   color: #bbb !important;
 }
 
+.container {
+  justify-content: center;
+}
+
+.footer {
+  position: relative;
+}
+
 /* ---------------------------------------------- dashboard flexbox content */
 .deck-feed{
   width: 100%;
@@ -65,22 +73,45 @@ img {
 
 /* ---------------------------------------------- freshen up animation   */
 .freshers-container {
-  perspective: 1000px;
+  height: 100%;
+  width:100%;
+  display: inline-flex;
+  margin: auto;
+  background: lightblue;
+  justify-content: center;
 }
 
 .freshers {
   height: 60vh;
-  width: 80%;
+  width: 70%;
   border: 3px solid #300;
   transform-style: preserve-3d;
   transition: all 0.6s ease-in-out;
   position: relative;
-  margin:auto;
+  margin:0;
+  display: inline-flex;
+  /* float:left; */
 }
 
-.freshers:hover, .freshers.hover{
+.freshers-back {
+  font-size: 300%;
+  height: auto;
+  width: 10%;
+  background: grey;
+  position: relative;
+  /* float: left; */
+}
+.freshers-next {
+  font-size: 300%;
+  height: auto;
+  width: 10%;
+  position: relative;
+  background: grey;
+  /* float: left; */
+}
+
+.freshers:hover{
   transform: rotateY(180deg);
-  /* transition: all 0.4s ease-in-out; */
 }
 
 .definition, .term{
@@ -94,29 +125,19 @@ img {
   text-align: center;
   align-items: center;
   display:flex;
+  font-size: 5vmin;
 }
 
 .term{
   transform:rotateY(0deg);
-  font-size: 5vmin;
 }
 
 .definition{
   transform: rotateY(180deg);
-  font-size: 5vmin; 
 }
 
 .oversized{
   font-size: 1rem;
-}
-
-.freshers-control {
-  width: 100%;
-  /* background: beige; */
-}
-.freshers-next {
-  background: grey;
-  margin:auto;
 }
 
 /* ------------------------------------------------Future's page */

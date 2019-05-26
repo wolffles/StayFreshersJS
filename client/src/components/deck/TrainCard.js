@@ -23,7 +23,7 @@ class TrainCard extends Component {
     //   fresher = <div className={`flashcard definition ${this.state.overflow_definition}`} onClick={this.onClick}><p>{this.props.card.definition}</p></div>
     // }
     return (
-      <div className="freshers">
+      <div className="freshers m-2">
         <div className={`term ${this.props.term}`} >{this.props.card.term}</div>
         <div className={`${this.props.definition} definition`} >{this.props.card.definition}</div>
         

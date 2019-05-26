@@ -29,6 +29,11 @@ export default function (state = initialState, action) {
                 ...state,
                 edit: !state.edit
             }
+        case STAY_FRESHER:
+            return {
+                ...state,
+                fresher: !state.fresher
+            }
         case GET_DECKS:
             return {
                 ...state,
@@ -57,11 +62,6 @@ export default function (state = initialState, action) {
                 ...state,
                 deck: {}
             };
-        case STAY_FRESHER:
-            return {
-                ...state,
-                fresher: !state.fresher
-            }
         default:
             return state;
     }
