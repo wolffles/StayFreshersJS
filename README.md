@@ -21,3 +21,5 @@ After login a user is taken to profile dashboard page should have the ability to
   - social aspect: add/delete friends, leave comments on decks view a friends deck
   - 
   - ability to test decks
+
+  * its also what you do with it. if you use some apis, and make something flashy anything can be impressive. Like a drag and drop matching system, or having a file uploader where a text file can be converted into a deck

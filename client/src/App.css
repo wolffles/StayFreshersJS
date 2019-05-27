@@ -89,7 +89,7 @@ img {
   position: relative;
   margin:0;
   display: inline-flex;
-  /* float:left; */
+  
 }
 
 .freshers-back {
@@ -98,7 +98,7 @@ img {
   width: 10%;
   background: grey;
   position: relative;
-  /* float: left; */
+  
 }
 .freshers-next {
   font-size: 300%;
@@ -106,7 +106,7 @@ img {
   width: 10%;
   position: relative;
   background: grey;
-  /* float: left; */
+  
 }
 
 .face{

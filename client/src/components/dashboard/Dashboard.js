@@ -5,10 +5,8 @@ import { connect } from 'react-redux';
 import { getCurrentProfile, deleteAccount } from '../../actions/profileActions';
 import { getUserDecks } from '../../actions/deckActions';
 import Spinner from '../common/Spinner';
-import ProfileButtons from './ProfileButtons'
-// import Experience from './Experience'
-// import Education from './Education'
-import DeckFeed from '../deck/DeckFeed'
+import ProfileButtons from './ProfileButtons';
+import DeckFeed from '../deck/DeckFeed';
 class Dashboard extends Component {
   componentDidMount(){
     this.props.getCurrentProfile()
