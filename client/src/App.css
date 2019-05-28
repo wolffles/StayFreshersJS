@@ -61,6 +61,13 @@ img {
 
 
 /* ----------------------------------------------- app themes */
+a{
+  text-decoration: none;
+}
+.link{
+  color: black;
+}
+
 .landing, .login, .register {
   position: relative;
   background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)),
@@ -158,7 +165,7 @@ li .nav-link {
   font-size: 300%;
   height: auto;
   width: 10%;
-  background:#98cea2;
+  /* background:#98cea2; */
   position: relative;
   
 }
@@ -167,7 +174,7 @@ li .nav-link {
   height: auto;
   width: 10%;
   position: relative;
-  background: #98cea2;
+  /* background: #98cea2; */
   
 }
 

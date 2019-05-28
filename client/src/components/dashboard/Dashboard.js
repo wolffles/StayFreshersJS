@@ -35,12 +35,12 @@ class Dashboard extends Component {
       // Check if logged in user has profile data 
       dashboardContent = (
         <div>
-          <div className="row dash-header">
-            <h2 className=""> Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link></h2>
+          <div className="row dash-header py-5 mint-green">
+            <h2 className=""> Welcome <Link className='link' to={`/profile/${profile.handle}`}>{user.name}</Link></h2>
             <ProfileButtons />
           </div>
           <div>
-            <h2 className="text-center">Your Decks</h2>
+            <h2 className="mt-3 text-center">Your Decks</h2>
             <div className="deck-feed">
               <DeckFeed decks={decks} dashboard={true}/>
             </div>
@@ -52,9 +52,11 @@ class Dashboard extends Component {
       // User is logged in but has no profile 
       dashboardContent = (
         <div>
-          <h2 className=""> Welcome { user.name }</h2>
-          <p>You have not yet setup a profile, please add some info</p>
-          <Link to="/create-profile" className="btn btn-lg SF-green">Create Profile</Link>
+          <div className="my-3 mint-green">
+            <h2 className=""> Welcome { user.name }</h2>
+            <p>You have not yet setup a profile, please add some info</p>
+            <Link to="/create-profile" className="btn btn-lg SF-green">Create Profile</Link>
+          </div>
         </div>
       )
     }
