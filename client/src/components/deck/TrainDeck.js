@@ -41,43 +41,45 @@ class TrainDeck extends Component {
 
   getPreviousCard(e) {
     let index = this.state.index
-    
     if (this.state.index === 0){
       this.setState({
+        face: this.state.face === 'face' ? this.toggleFace() : '',
         currentCard: this.state.cards[this.state.cards.length - 1],
         index: this.state.cards.length - 1,
         overflow_term: this.overflow(this.state.cards[this.state.cards.length - 1].term),
-        overflow_definition: this.overflow(this.state.cards[this.state.cards.length - 1].definition),
-        face: this.state.face === 'face' ? this.toggleFace() : ''
+        overflow_definition: this.overflow(this.state.cards[this.state.cards.length - 1].definition)
       })
     }else
     this.setState({
+      face: this.state.face === 'face' ? this.toggleFace() : '',
       currentCard: this.state.cards[this.state.index -1],
       index: this.state.index-1,
       overflow_term: this.overflow(this.state.cards[index-1].term),
-      overflow_definition: this.overflow(this.state.cards[index-1].definition),
-      face: this.state.face === 'face' ? this.toggleFace() : ''
+      overflow_definition: this.overflow(this.state.cards[index-1].definition)
     })
   }
 
   getNextCard(e) {
-    let index = this.state.index
+    // let index = this.state.index
     if (this.state.index + 1 > this.state.cards.length - 1) {
-      this.setState({
-        currentCard: this.state.cards[0],
-        index: 0,
-        overflow_term: this.overflow(this.state.cards[0].term),
-        overflow_definition: this.overflow(this.state.cards[0].definition),
-        face: this.state.face === 'face' ? this.toggleFace() : ''
-      })
-    } else
-      this.setState({
-        currentCard: this.state.cards[this.state.index + 1],
-        index: this.state.index + 1,
-        overflow_term: this.overflow(this.state.cards[index + 1].term),
-        overflow_definition: this.overflow(this.state.cards[index + 1].definition),
-        face: this.state.face === 'face' ? this.toggleFace() : ''
-      })
+      this.cardChange(0)
+      // this.setState({
+      //   face: this.state.face === 'face' ? this.toggleFace() : '',
+      //   currentCard: this.state.cards[0],
+      //   index: 0,
+      //   overflow_term: this.overflow(this.state.cards[0].term),
+      //   overflow_definition: this.overflow(this.state.cards[0].definition)
+      // })
+    } else {
+      this.cardChange(this.state.index+1)
+      // this.setState({
+      //   face: this.state.face === 'face' ? this.toggleFace() : '',
+      //   currentCard: this.state.cards[this.state.index + 1],
+      //   index: this.state.index + 1,
+      //   overflow_term: this.overflow(this.state.cards[index + 1].term),
+      //   overflow_definition: this.overflow(this.state.cards[index + 1].definition)
+      // })
+    }
   }
 
   toggleFace(bool){
@@ -99,6 +101,18 @@ class TrainDeck extends Component {
     this.setState({ termDef: !this.state.termDef })
   }
 
+  async cardChange(index){
+    await this.setState({face: ''});
+    setTimeout(()=> {
+      this.setState({
+        currentCard: this.state.cards[index],
+        index: index,
+        overflow_term: this.overflow(this.state.cards[index].term),
+        overflow_definition: this.overflow(this.state.cards[index].definition)
+      })
+    }, 300)
+    
+  }
 
 
   render() {
@@ -107,10 +121,6 @@ class TrainDeck extends Component {
           <button className='btn freshers-back my-2' onClick={this.getPreviousCard}> &laquo; </button>
           <TrainCard term={this.state.overflow_term} definition={this.state.overflow_definition} face={this.state.face} card={this.state.currentCard} onCardClick={this.onCardClick}/>
           <button className='btn freshers-next my-2' onClick={this.getNextCard}> &raquo; </button>
-
-          {/* <div className="freshers-control">
-            <button className='btn freshers-next' onClick={this.getNextCard}>next</button>
-          </div> */}
       </div>
     )
   }

@@ -44,13 +44,11 @@ class Navbar extends Component {
           </ul>)
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
-            <div className="container">
                 <Link className="navbar-brand" to="/">StayFreshers</Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-
-                <div className="collapse navbar-collapse" id="mobile-nav">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
                             <Link className="nav-link" to="/looking-ahead">Coming Soon!</Link>
@@ -58,8 +56,7 @@ class Navbar extends Component {
                     </ul>
                     {isAuthenticated ? authLinks : guestLinks}
                 </div>
-            </div>
-        </nav>
+        </nav> 
     )
   }
 }

@@ -61,6 +61,12 @@ img {
   justify-content: center;
 }
 
+/* ---------------------------------------- Layout, navbar, footer */
+
+li .nav-link {
+  text-align: right;
+}
+
 .footer {
   position: relative;
 }
@@ -93,7 +99,10 @@ img {
   position: relative;
   margin:0;
   display: inline-flex;
-  
+}
+
+.freshers:hover {
+  cursor: pointer;
 }
 
 .freshers-back {
