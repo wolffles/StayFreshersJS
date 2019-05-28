@@ -60,7 +60,7 @@ class Sort extends Component {
           <input
             type="submit"
             value="Submit"
-            className="btn btn-info btn mt-4"
+            className="btn SF-green-btn btn mt-4"
           />
         </form> */}
         <form className="input-group mb-2" onSubmit={this.onSubmit}>
@@ -78,7 +78,7 @@ class Sort extends Component {
           <input
             type="submit"
             value="Submit"
-            className="btn btn-info btn"
+            className="btn SF-green-btn btn"
           />
         </form>
       </span>

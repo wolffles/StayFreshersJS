@@ -78,7 +78,7 @@ class DeckItem extends Component {
                 {showActions ? (
                     <span>
                         {dashboard ? "" : likeDisBtns}
-                        <Link to={ `/deck/${deck._id}` } className="btn btn-info mr-1">
+                        <Link to={ `/deck/${deck._id}` } className="btn SF-green mr-1">
                             View
                         </Link>
                         {/* <Link to={`/deck/${deck._id}`} className="btn btn-info mr-1">

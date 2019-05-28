@@ -64,15 +64,13 @@ class Deck extends Component {
                     <div className="row mb-2">
                         <div className="col">
                             <div className="card card-info h-100">
-                                <div className="card-header bg-info text-white">Deck Info</div>
+                                <div className="card-header mint-green">Deck Info</div>
                                 <div className="card-body">
                                     <DeckItem deck={deck} showActions={false} />
                                 </div>
                             </div>    
                         </div>
-                        <div className="col">
-                            {(deck.user === auth.user.id) ? <AddCard deck={deck} /> : null }
-                        </div>
+                        {(deck.user === auth.user.id) ? <div className="col"><AddCard deck={deck} /> </div>: null }
                     </div>
                     <CardFeed deckId={deck._id} deckUser={deck.user} cards={deck.cards} />
                 </div>
@@ -83,25 +81,25 @@ class Deck extends Component {
         let freshButton;
         if (deck.user === auth.user.id){ 
             if( edit === true ){ 
-                editButton = (<button className="btn btn-light mb-3" onClick={this.onEditClick}>Back</button>) 
+                editButton = (<button className="btn light mb-3" onClick={this.onEditClick}>Back</button>) 
             } else {
-                editButton = (<button className="btn btn-light mb-3" onClick={this.onEditClick}>Edit Deck</button>)
+                editButton = (<button className="btn light mb-3" onClick={this.onEditClick}>Edit Deck</button>)
             }
         }
         if (edit === true) {
             freshButton = ''
         }   else {
             if (fresher === true) {
-                freshButton = (<button className="btn btn-warning mb-3" onClick={this.onFreshersClick}>fresh enough</button>)
+                freshButton = (<button className="btn btn-warning mb-3" onClick={this.onFreshersClick}>Fresh Enough</button>)
                 editButton = ''
             } else {
-                freshButton = (<button className="btn btn-success mb-3" onClick={this.onFreshersClick}>Freshen Up</button>)
+                freshButton = (<button className="btn mint-green-btn mb-3" onClick={this.onFreshersClick}>Freshen Up</button>)
             }
         }
         return (
                 <div className="container">
                     <div className="row">
-                        <Link to="/dashboard" className="btn btn-light mb-3">
+                    <Link to="/dashboard" className="btn light text-dark mb-3">
                             Back To dashboard
                         </Link>
                         { editButton }

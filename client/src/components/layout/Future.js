@@ -48,7 +48,7 @@ class Future extends Component {
 
     return (
       <div className="future">
-        <h1 className="text-center">Coming Soon</h1>
+        <h2 className="text-center">News on the new new</h2>
         <ul className="feedback mb-4 text-center">
           <li>Better Profile features</li>
           <li>The ability to add friends</li>
@@ -57,7 +57,7 @@ class Future extends Component {
         </ul>
 
 
-        <h1 className="text-center"> Love/Hate it? Got bugs? Leave some feedback </h1>
+        <h2 className="text-center"> Love/Hate it? Got bugs? Leave some feedback </h2>
           <FeedbackFeed feedback={feedback} />
         <form onSubmit={this.onSubmit} className="feedback">
             <TextAreaFieldGroup 
@@ -67,7 +67,7 @@ class Future extends Component {
               onChange={this.onChange}
               error={errors.text}
             />
-          <button type="submit" className="btn btn-dark">Submit</button>
+          <button type="submit" className="btn SF-green">Submit</button>
           </form>
         
       </div>

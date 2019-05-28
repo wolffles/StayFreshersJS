@@ -75,7 +75,7 @@ class AddDeck extends Component {
                             error={errors.text}
                         />
                     </div>
-                    <button type="submit" className="btn btn-dark">
+                    <button type="submit" className="btn SF-green">
                         Submit
                                 </button>
                 </form>)

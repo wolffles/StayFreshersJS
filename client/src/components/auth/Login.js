@@ -90,7 +90,7 @@ class Login extends Component {
                   onChange={this.onChange}
                   error={errors.password}
                 />
-                <input type="submit" className="btn btn-info btn-block mt-4" />
+                <input type="submit" className="btn SF-green-btn btn-block mt-4" />
                 <button className="btn btn-success btn-block mt-4" onClick={this.onClick}>
                   Demo Login
               </button>

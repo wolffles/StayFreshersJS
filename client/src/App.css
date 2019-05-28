@@ -1,3 +1,45 @@
+
+/* color themes 
+  #60c8db
+  #6cc67d
+  #47b75c
+  #39934a
+  #98cea2
+  #ceae84
+
+*/
+
+.light{
+  background-color: #cccccc;
+}
+
+.light:hover{ 
+  background-color: #f3f3f3;
+}
+
+.mint-green{
+  background-color: #aef3bb;
+}
+.mint-green-btn{
+  background-color: #aef3bb;
+}
+.mint-green-btn:hover{
+  background-color: #6cc67d;
+}
+.SF-green{
+  background-color: #47b75c;
+  color: white;
+}
+.SF-green-btn{
+  background-color: #47b75c;
+  color: white;
+}
+.SF-green-btn:hover {
+  background-color: #39934a;
+  color: white;
+}
+
+
 /* font size scales with view */
 h1{
   font-size: 6vw;
@@ -16,10 +58,13 @@ img {
   width: 100%;
 }
 
+
+
 /* ----------------------------------------------- app themes */
-.landing {
+.landing, .login, .register {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
+  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)),
+                     url('./img/showcase.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -35,14 +80,14 @@ img {
   padding-top: 80px;
 }
 
-.dark-overlay {
+/* .dark-overlay {
   background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-}
+} */
 
 .card-form {
   opacity: 0.9;
@@ -81,6 +126,10 @@ li .nav-link {
   justify-content: center;
 }
 
+.dash-header{
+  justify-content: center;
+}
+
 /* ---------------------------------------------- freshen up animation   */
 .freshers-container {
   height: 100%;
@@ -109,7 +158,7 @@ li .nav-link {
   font-size: 300%;
   height: auto;
   width: 10%;
-  background: grey;
+  background:#98cea2;
   position: relative;
   
 }
@@ -118,7 +167,7 @@ li .nav-link {
   height: auto;
   width: 10%;
   position: relative;
-  background: grey;
+  background: #98cea2;
   
 }
 
