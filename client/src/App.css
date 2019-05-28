@@ -27,6 +27,10 @@ img {
   margin-bottom: -50px;
 }
 
+.appName {
+  font-size: 10vw;
+}
+
 .landing-inner {
   padding-top: 80px;
 }
