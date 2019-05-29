@@ -65,7 +65,11 @@ class Deck extends Component {
                         <div className="col">
                             <div className="card card-info h-100">
                                 <div className="card-header mint-green">Deck Info</div>
-                                    <DeckItem deck={deck} showActions={false} />
+                                <div className="deck-info text-center">
+                                    <h2 className="subject font-weight-bold">{deck.subject}</h2>
+                                    <div className="description">{deck.description}</div>
+                                    <div className="card_count">card count: {deck.cards.length}</div>
+                                </div>
                             </div>    
                         </div>
                         {(deck.user === auth.user.id) ? <div className="col"><AddCard deck={deck} /> </div>: null }

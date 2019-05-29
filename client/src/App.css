@@ -124,7 +124,13 @@ a:hover{
   justify-content: center;
   /* background-color: #cccaca; */
 }
-
+/* ------------------------------------------Deck */
+.deck-info{
+  /* display: inline-block;
+  vertical-align: middle; */
+  padding: 25% 0;
+  height: 100%;
+}
 
 
 /* ---------------------------------------- Layout, navbar, footer */
