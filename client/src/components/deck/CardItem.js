@@ -13,7 +13,12 @@ class CardItem extends Component {
         this.onClick = this.onClick.bind(this);
     }
     onDeleteClick(deckId, cardId) {
-        this.props.deleteCard(deckId, cardId);
+        if (['5cede4a501cf540017fa9c66', '5cec273fac96612d49ea4b3c'].includes(deckId)){
+            alert("Cant delete these sorry bud")
+        }else{
+            // console.log("oops")
+            this.props.deleteCard(deckId, cardId);
+        }
     }
 
     onClick(){
