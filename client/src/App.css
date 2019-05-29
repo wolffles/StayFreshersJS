@@ -132,8 +132,11 @@ a:hover{
 }
 
 .container {
+  border-radius: 10px;
+  padding-top: 20px;
   justify-content: center;
-  /* background-color: #cccaca; */
+  background-color: #e9e5e5;
+  box-shadow:5px 5px 10px  #e9e5e5, -5px -5px 10px  #e9e5e5
 }
 /* ------------------------------------------Deck */
 .deck-info{

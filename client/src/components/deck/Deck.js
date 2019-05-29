@@ -83,26 +83,26 @@ class Deck extends Component {
         let freshButton;
         if (deck.user === auth.user.id){ 
             if( edit === true ){ 
-                editButton = (<button className="btn light mb-3" onClick={this.onEditClick}>Back</button>) 
+                editButton = (<button className="btn light mx-1 mb-3" onClick={this.onEditClick}>Back</button>) 
             } else {
-                editButton = (<button className="btn light mb-3" onClick={this.onEditClick}>Edit Deck</button>)
+                editButton = (<button className="btn light mx-1 mb-3" onClick={this.onEditClick}>Edit Deck</button>)
             }
         }
         if (edit === true) {
             freshButton = ''
         }   else {
             if (fresher === true) {
-                freshButton = (<button className="btn btn-warning mb-3" onClick={this.onFreshersClick}>Fresh Enough</button>)
+                freshButton = (<button className="btn btn-warning mx-1 mb-3" onClick={this.onFreshersClick}>Fresh Enough</button>)
                 editButton = ''
             } else {
-                freshButton = (<button className="btn mint-green-btn mb-3" onClick={this.onFreshersClick}>Freshen Up</button>)
+                freshButton = (<button className="btn mint-green-btn mx-1 mb-3" onClick={this.onFreshersClick}>Freshen Up</button>)
             }
         }
         return (
                 <div className="container">
                     <div className="row">
-                    <Link to="/dashboard" className="btn light text-dark mb-3">
-                            Back To dashboard
+                    <Link to="/dashboard" className="btn light text-dark mx-1 mb-3">
+                            Back To Dashboard
                         </Link>
                         { editButton }
                         { freshButton }

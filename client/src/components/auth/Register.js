@@ -53,8 +53,7 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="register">
-        <div className="container">
+      <div className="register py-5">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
@@ -99,7 +98,6 @@ class Register extends Component {
               </form>
             </div>
           </div>
-        </div>
       </div>
     );
   }
