@@ -67,7 +67,7 @@ class Future extends Component {
               onChange={this.onChange}
               error={errors.text}
             />
-          <button type="submit" className="btn SF-green">Submit</button>
+          <button type="submit" className="btn SF-green-btn">Submit</button>
           </form>
         
       </div>

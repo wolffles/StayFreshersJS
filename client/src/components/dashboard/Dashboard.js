@@ -52,10 +52,10 @@ class Dashboard extends Component {
       // User is logged in but has no profile 
       dashboardContent = (
         <div>
-          <div className="my-3 mint-green">
+          <div className="py-3 mint-green">
             <h2 className=""> Welcome { user.name }</h2>
             <p>You have not yet setup a profile, please add some info</p>
-            <Link to="/create-profile" className="btn btn-lg SF-green">Create Profile</Link>
+            <Link to="/create-profile" className="btn btn-lg SF-green-btn">Create Profile</Link>
           </div>
         </div>
       )

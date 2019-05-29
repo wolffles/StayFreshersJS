@@ -10,7 +10,10 @@ const TextFieldGroup = ({
     info,
     type,
     onChange,
-    disabled
+    disabled,
+    className,
+    autofocus,
+    refer
 }) => {
     return (
         <div className="form-group">
@@ -24,8 +27,10 @@ const TextFieldGroup = ({
                 value={value}
                 onChange={onChange}
                 disabled={disabled}
+                autoFocus={autofocus}
+                ref={refer}
             />
-            {info && <small className="form-text text-muted">{info}</small>}
+            {info && <small className={"form-text " + { className } ? { className } : "text-muted"}>{info}</small>}
             {error && <div className="invalid-feedback">{error}</div>}
         </div>
     );
@@ -39,7 +44,8 @@ TextFieldGroup.propTypes = {
     error: PropTypes.string,
     type: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
-    disabled: PropTypes.string
+    disabled: PropTypes.string,
+    refer: PropTypes.any
 };
 
 TextFieldGroup.defaultProps = {

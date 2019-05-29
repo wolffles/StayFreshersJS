@@ -76,7 +76,7 @@ class EditDeck extends Component {
               error={errors.text}
             />
           </div>
-          <button type="submit" className="btn SF-green">
+          <button type="submit" className="btn SF-green-btn">
             Submit
                                 </button>
         </form>)
@@ -84,7 +84,7 @@ class EditDeck extends Component {
     return (
       <div className="deck-form mb-3">
         <div className="card card-info">
-          <div className="card-header bg-info text-white">Edit your deck</div>
+          <div className="card-header mint-green">Edit your deck</div>
           <div className="card-body">
             {deckContent}
           </div>

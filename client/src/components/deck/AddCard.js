@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import TextFieldGroup from '../common/TextFieldGroup';
 import { addCard } from '../../actions/deckActions';
+// import classnames from 'classnames';
 
 class AddCard extends Component {
   constructor(props) {
@@ -16,10 +17,9 @@ class AddCard extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.focusInput = React.createRef();
   }
-  componentDidMount(){
-    
-  }
+
 
   componentWillReceiveProps(newProps) {
     if (newProps.errors) {
@@ -41,6 +41,7 @@ class AddCard extends Component {
       term: '' ,
       definition: ''
     });
+    this.focusInput.current.focus();
   }
 
   onChange(e) {
@@ -58,21 +59,23 @@ class AddCard extends Component {
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <TextFieldGroup
+                  refer={this.focusInput}
                   placeholder="Term"
                   name="term"
                   value={this.state.term}
                   onChange={this.onChange}
-                  error={errors.text}
-                />
+                  error={errors.term}
+                  autofocus={true}
+                /> 
                 <TextAreaFieldGroup
                   placeholder="Definition"
                   name="definition"
                   value={this.state.definition}
                   onChange={this.onChange}
-                  error={errors.text}
+                  error={errors.definition}
                 />
               </div>
-              <button type="submit" className="btn SF-green">
+              <button type="submit" className="btn SF-green-btn">
                 Submit
               </button>
             </form>

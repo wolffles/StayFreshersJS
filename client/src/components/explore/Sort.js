@@ -67,8 +67,8 @@ class Sort extends Component {
           <select className="col" name='attribute' value={this.state.attribute} onChange={this.onChange}>
             <option value="">Select an attribute</option>
             <option value="date">Date</option>
-            <option value="likes">Likes</option>
-            <option value="dislikes">Dislikes</option>
+            <option value="like_count">Likes</option>
+            {/* <option value="dislikes">Dislikes</option> */}
           </select>
           <select className="col" name="order" value={this.state.order} onChange={this.onChange}>
             <option value="">Select an order</option>

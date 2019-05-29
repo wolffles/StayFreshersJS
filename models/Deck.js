@@ -44,6 +44,10 @@ const DeckSchema = new Schema({
             }
         }
     ],
+    like_count: {
+        type: Number,
+        default:0
+    },
     dislikes: [
         {
             user: {

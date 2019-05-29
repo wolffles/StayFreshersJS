@@ -22,9 +22,9 @@ class Landing extends Component {
       }else{
           content = (<div className="col-md-12 text-center">
               <h1 className="appName mb-4">StayFreshers</h1>
-              <p className="lead text-muted"> A place where nerds are worshiped: create and share decks, become popular</p>
+              <p className="lead"> A place where nerds are worshiped: create and share decks, become popular</p>
               <hr />
-              <Link to="/register" className="btn btn-lg SF-green mr-2">Sign Up</Link>
+              <Link to="/register" className="btn btn-lg SF-green-btn mr-2">Sign Up</Link>
               <Link to="/login" className="btn btn-lg btn-light">Login</Link>
           </div>)
       }

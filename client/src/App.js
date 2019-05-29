@@ -59,7 +59,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <div className="container">
+            <div className="app-container py-3">
               <Route exact path="/looking-ahead" component={Future} /> 
               <Route exact path="/profiles" component={Profiles} />
               <Route exact path="/profile/:handle" component={Profile} />

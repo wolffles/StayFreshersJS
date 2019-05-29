@@ -17,7 +17,7 @@ const validateCardInput = require('../../validation/card');
 //@access   public 
 router.get('/:attribute.:order', (req, res) => {
     const obj = {}
-    obj[req.params.attribute] = req.params.order
+    obj[req.params.attribute] = +req.params.order
     Deck.find()
         .sort(obj)
         .then(decks => res.json(decks))
@@ -180,7 +180,8 @@ router.post(
                         .map(item => item.user.toString())
                         .indexOf(req.user.id);
                     //Splice out of array
-                    deck.likes.splice(removeIndex, 1);
+                    deck.likes.splice(removeIndex, 1)
+                    deck.like_count=deck.likes.length;
                     deck.save().then(deck => res.json(deck));
                 }else{
                     // check if disliked has been toggled
@@ -194,6 +195,7 @@ router.post(
                     }
                     //add user id to the likes array.
                     deck.likes.unshift({ user: req.user.id});
+                    deck.like_count = deck.likes.length;
                     deck.save().then(deck => res.json(deck))
                 }
             })
@@ -219,6 +221,7 @@ router.post(
 
                         //Splice out of array
                         deck.dislikes.splice(removeIndex, 1);
+                        deck.like_count = deck.likes.length;
                         deck.save().then(deck => res.json(deck));
                     }else{
                         // check if like has been toggled
@@ -232,6 +235,7 @@ router.post(
                         }
                         //add user id to the likes array.
                         deck.dislikes.unshift({ user: req.user.id });
+                        deck.like_count = deck.likes.length;
                         deck.save().then(deck => res.json(deck))
                     }
                 })

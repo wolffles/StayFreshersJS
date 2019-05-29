@@ -77,6 +77,7 @@ class Register extends Component {
                   onChange={this.onChange}
                   error={errors.email}
                   info="This site uses Gravatar so if you want a profile image, use a Gravatar email"
+                  className="text-white"
                 />
                 <TextFieldGroup
                   placeholder="Password"
@@ -94,7 +95,7 @@ class Register extends Component {
                   onChange={this.onChange}
                   error={errors.password2}
                 />
-                <input type="submit" className="btn SF-green btn-block mt-4" />
+                <input type="submit" className="btn SF-green-btn btn-block mt-4" />
               </form>
             </div>
           </div>

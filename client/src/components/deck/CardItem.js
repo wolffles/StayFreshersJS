@@ -27,7 +27,7 @@ class CardItem extends Component {
         if (deckUser === auth.user.id ){
             cardButtons = (
                 <div className="mx-auto">
-                    <button type="button" className="btn SF-green mx-3" onClick={this.onClick}>edit</button>
+                    <button type="button" className="btn SF-green-btn mx-3" onClick={this.onClick}>edit</button>
                     <button
                         onClick={this.onDeleteClick.bind(this, deckId, card._id)}
                         type="button"

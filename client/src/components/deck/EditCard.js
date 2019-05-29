@@ -79,7 +79,7 @@ class EditCard extends Component {
                   error={errors.text}
                 />
               </div>
-              <button type="submit" className="btn SF-green">
+              <button type="submit" className="btn SF-green-btn">
                 Submit
               </button>
             </form>

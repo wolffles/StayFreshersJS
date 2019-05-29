@@ -46,7 +46,6 @@ class CreateProfile extends Component {
             bio: profile.bio,
             errors: {}
         })
-
     }
   }
 
@@ -99,7 +98,7 @@ class CreateProfile extends Component {
                 <input
                   type="submit"
                   value="Submit"
-                  className="btn SF-green btn-block mt-4"
+                  className="btn SF-green-btn btn-block mt-4"
                 />
               </form>
             </div>

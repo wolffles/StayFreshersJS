@@ -11,20 +11,25 @@
 
 .light{
   background-color: #cccccc;
+  /* box-shadow:5px 5px 5px #cccaca, -5px 5px 5px #cccaca; */
 }
 
 .light:hover{ 
   background-color: #f3f3f3;
+  box-shadow:5px 5px 5px #cccaca, -5px 5px 5px #cccaca;
 }
 
 .mint-green{
   background-color: #aef3bb;
+  box-shadow: -5px 5px 5px #5eaf6d,5px 5px 5px #5eaf6d;
 }
 .mint-green-btn{
   background-color: #aef3bb;
+  /* box-shadow: -5px 5px 5px #5eaf6d,5px 5px 5px #5eaf6d; */
 }
 .mint-green-btn:hover{
   background-color: #6cc67d;
+  box-shadow: -5px 5px 5px #5eaf6d,5px 5px 5px #5eaf6d;
 }
 .SF-green{
   background-color: #47b75c;
@@ -34,8 +39,9 @@
   background-color: #47b75c;
   color: white;
 }
-.SF-green-btn:hover {
+.SF-green-btn:hover{
   background-color: #39934a;
+  box-shadow: -5px 5px 5px #60e779,5px 5px 5px #60e779;
   color: white;
 }
 
@@ -61,8 +67,9 @@ img {
 
 
 /* ----------------------------------------------- app themes */
-a{
+a:hover{
   text-decoration: none;
+  color: white
 }
 .link{
   color: black;
@@ -75,8 +82,8 @@ a{
   background-size: cover;
   background-position: center;
   height: 100vh;
-  margin-top: -24px;
   margin-bottom: -50px;
+  color:white;
 }
 
 .appName {
@@ -100,6 +107,10 @@ a{
   opacity: 0.9;
 }
 
+.card{
+  box-shadow:5px 5px 5px #cccaca, -5px 5px 5px #cccaca;
+}
+
 .latest-profiles-img {
   width: 40px;
   height: 40px;
@@ -111,7 +122,10 @@ a{
 
 .container {
   justify-content: center;
+  /* background-color: #cccaca; */
 }
+
+
 
 /* ---------------------------------------- Layout, navbar, footer */
 
@@ -155,6 +169,7 @@ li .nav-link {
   position: relative;
   margin:0;
   display: inline-flex;
+  box-shadow:5px 5px 5px #cccaca, -5px 5px 5px #cccaca;
 }
 
 .freshers:hover {
