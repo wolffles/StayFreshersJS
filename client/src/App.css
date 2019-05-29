@@ -6,8 +6,14 @@
   #39934a
   #98cea2
   #ceae84
-
 */
+
+
+
+* {
+  box-sizing: border-box;
+  font-size: 2vw
+}
 
 .light{
   background-color: #cccccc;
@@ -18,7 +24,9 @@
   background-color: #f3f3f3;
   box-shadow:5px 5px 5px #cccaca, -5px 5px 5px #cccaca;
 }
-
+.mint{
+  background-color: #aef3bb;
+}
 .mint-green{
   background-color: #aef3bb;
   box-shadow: -5px 5px 5px #5eaf6d,5px 5px 5px #5eaf6d;
@@ -59,6 +67,9 @@ h3{
   font-size: 2vw;
 }
 
+.h3{
+  font-size: 2vw;
+}
 
 img {
   width: 100%;
@@ -155,6 +166,8 @@ li .nav-link {
 
 .dash-header{
   justify-content: center;
+  margin-right:0;
+  margin-left:0;
 }
 
 /* ---------------------------------------------- freshen up animation   */
@@ -182,21 +195,15 @@ li .nav-link {
   cursor: pointer;
 }
 
-.freshers-back {
-  font-size: 300%;
-  height: auto;
-  width: 10%;
-  /* background:#98cea2; */
-  position: relative;
-  
-}
-.freshers-next {
+
+.freshers-btn {
   font-size: 300%;
   height: auto;
   width: 10%;
   position: relative;
-  /* background: #98cea2; */
-  
+  padding: 0;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .face{
@@ -242,4 +249,25 @@ ul{
 .feedback-name{
   font-size: 1.5vw;
   text-align: center;
+}
+
+
+@media only screen and (max-width: 768px){
+  
+  h1{
+    font-size:8vw;
+  }
+
+  h2{
+    font-size: 6vw;
+  }
+
+  .h2{
+    font-size: 6vw;
+  }
+
+  .h4{
+    font-size: 3vw;
+  }
+  
 }

@@ -118,9 +118,9 @@ class TrainDeck extends Component {
   render() {
     return (
       <div className="freshers-container">
-          <button className='btn freshers-back mint-green-btn my-2' onClick={this.getPreviousCard}> &laquo; </button>
+          <button className='freshers-btn mint-green-btn my-2' onClick={this.getPreviousCard}> &laquo; </button>
           <TrainCard term={this.state.overflow_term} definition={this.state.overflow_definition} face={this.state.face} card={this.state.currentCard} onCardClick={this.onCardClick}/>
-          <button className='btn freshers-next mint-green-btn my-2' onClick={this.getNextCard}> &raquo; </button>
+          <button className='freshers-btn mint-green-btn my-2' onClick={this.getNextCard}> &raquo; </button>
       </div>
     )
   }

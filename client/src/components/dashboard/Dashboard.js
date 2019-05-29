@@ -35,9 +35,11 @@ class Dashboard extends Component {
       // Check if logged in user has profile data 
       dashboardContent = (
         <div>
-          <div className="row dash-header py-5 mint-green">
-            <h2 className=""> Welcome <Link className='link' to={`/profile/${profile.handle}`}>{user.name}</Link></h2>
-            <ProfileButtons />
+          <div className="dash-header py-5 mint-green text-center">
+            <h2 className=""> Welcome <Link className='link h2' to={`/profile/${profile.handle}`}>{user.name}</Link></h2>
+            <div>
+              <ProfileButtons />
+            </div>
           </div>
           <div>
             <h2 className="mt-3 text-center">Your Decks</h2>

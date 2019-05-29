@@ -6,6 +6,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import { addDeck, clearDeck } from '../../actions/deckActions';
 import AddCard from '../deck/AddCard'
 import isEmpty from '../../validation/is-empty'
+import {Link} from 'react-router-dom'
 
 class AddDeck extends Component {
     constructor(props) {
@@ -65,14 +66,14 @@ class AddDeck extends Component {
                             name="subject"
                             value={this.state.subject}
                             onChange={this.onChange}
-                            error={errors.text}
+                            error={errors.subject}
                         />
                         <TextAreaFieldGroup
                             placeholder="Description"
                             name="description"
                             value={this.state.description}
                             onChange={this.onChange}
-                            error={errors.text}
+                            error={errors.description}
                         />
                     </div>
                     <button type="submit" className="btn SF-green-btn">
@@ -86,9 +87,10 @@ class AddDeck extends Component {
         }
 
         return (
-            <div className="deck-form mb-3">
+            <div className="container deck-form mb-3">
+                <Link to='/dashboard' className="btn light text-dark mb-3" >back</Link>
                 <div className="card card-info">
-                    <div className="card-header bg-info text-white">Create your deck</div>
+                    <div className="card-header mint-green">Create your deck</div>
                     <div className="card-body">
                         {deckContent}
                     </div>

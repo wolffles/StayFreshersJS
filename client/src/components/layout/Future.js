@@ -49,9 +49,17 @@ class Future extends Component {
     return (
       <div className="future">
         <h2 className="text-center">News on the new new</h2>
-        <ul className="feedback mb-4 text-center">
+        <ul className="text-center">
+          <li>App visually looks better</li>
+          <li>testing deck has better functionality click to flip</li>
+          <li>testing deck has better animation</li>
+          <li></li>
+        </ul>
+        <h2 className="text-center">Features to come</h2>
+        <ul className="mb-4 text-center">
           <li>Better Profile features</li>
           <li>The ability to add friends</li>
+          <li>upload pictures instead of using gravatar</li>
           <li>Comment on decks</li>
           <li>Clone a deck to own the deck</li>
         </ul>

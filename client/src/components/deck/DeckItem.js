@@ -72,7 +72,7 @@ class DeckItem extends Component {
                         <br />
                         <p className="text-center">{deck.subject}</p>
                     </div> */}
-                <h2 className="subject font-weight-bold">{deck.subject}</h2>
+                <h2 className="subject ">{deck.subject}</h2>
                 <p className="description">{deck.description}</p>
                 <p className="card_count">card count: {deck.cards.length}</p>
                 {showActions ? (

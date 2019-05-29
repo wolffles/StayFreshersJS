@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const ProfileButtons = () => {
     return (
-    <div className="btn-group" role="group">
-        <Link to="/edit-profile" className="btn mint-green-btn link">
+    <div className="btn-group h3" role="group">
+        <Link to="/edit-profile" className="mint link">
             <i className="fas fa-user-circle text-info mr-1" /> Edit Profile
         </Link>
-        <Link to="/add-deck" className="btn mint-green-btn link">
+        <Link to="/add-deck" className="mint link">
             <i className="fab fa-black-tie text-info mr-1" />
             Add Deck
         </Link>
