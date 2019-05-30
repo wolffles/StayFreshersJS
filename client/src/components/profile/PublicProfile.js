@@ -8,7 +8,7 @@ function PublicProfile({user_id, deck, auth}) {
   console.log(deck);
   return (
     <div>
-      
+      new feature coming soon!
     </div>
   )
 }
