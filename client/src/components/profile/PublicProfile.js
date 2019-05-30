@@ -1,27 +1,25 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-class PublicProfile extends Component {
-  const [user, setUser] = useState(this.props.user_id);
-
-  render() {
-      const {user_id} = this.props
-    console.log(user)
-    return (
-      <div>
-        
-      </div>
-    )
-  }
+function PublicProfile({user_id, deck, auth}) {
+  const [user, setUser] = useState(user_id);
+  console.log(user);
+  console.log(deck);
+  return (
+    <div>
+      
+    </div>
+  )
 }
+
 
 PublicProfile.propTypes = {
   user_id: PropTypes.string.isRequired
 }
 const mapStateToProps = state => ({
-  // deck: state.deck,
-  // auth: state.auth
+  deck: state.deck,
+  auth: state.auth
 })
 
 export default connect(mapStateToProps, {} )(PublicProfile);
