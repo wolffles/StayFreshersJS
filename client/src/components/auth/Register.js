@@ -57,7 +57,7 @@ class Register extends Component {
         <div className="layout-container">        
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h2 className="text-center">Sign Up</h2>
+              <h1 className="text-center">Sign Up</h1>
               <p className="text-center">
                 Create your StayFreshers account
               </p>

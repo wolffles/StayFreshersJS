@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import DeckItem from './DeckItem';
+import DeckItem from './DeckItem';
 import AddCard from './AddCard';
 import TrainDeck from './TrainDeck';
 // import CommentFeed from './CommentFeed';
@@ -10,6 +10,7 @@ import CardFeed from './CardFeed';
 import Spinner from '../common/Spinner';
 import { getDeck, toggleEdit, clearDeck, toggleFreshers } from '../../actions/deckActions';
 import EditDeck from './EditDeck';
+import PublicProfile from '../profile/PublicProfile'
 
 class Deck extends Component {
     constructor(props) {
@@ -65,14 +66,17 @@ class Deck extends Component {
                         <div className="col">
                             <div className="card card-info h-100">
                                 <div className="card-header mint-green">Deck Info</div>
-                                <div className="deck-info text-center">
+                                {/* <div className="deck-info text-center">
                                     <h2 className="subject font-weight-bold">{deck.subject}</h2>
                                     <div className="description">{deck.description}</div>
                                     <div className="card_count">card count: {deck.cards.length}</div>
+                                </div> */}
+                                <div className="card-body">
+                                    <DeckItem deck={deck} showActions={false}/>
                                 </div>
                             </div>    
                         </div>
-                        {(deck.user === auth.user.id) ? <div className="col"><AddCard deck={deck} /> </div>: null }
+                        {(deck.user === auth.user.id) ? <div className="col"><AddCard deck={deck} /> </div> : <div className="col"><PublicProfile user_id={deck.user}/></div>}
                     </div>
                     <CardFeed deckId={deck._id} deckUser={deck.user} cards={deck.cards} />
                 </div>

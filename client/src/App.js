@@ -18,7 +18,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/create-profile/CreateProfile';
-import EditProfile from './components/edit-profile/EditProfile';
+import EditProfile from './components/profile/EditProfile';
 import AddDeck from './components/dashboard/AddDeck';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';

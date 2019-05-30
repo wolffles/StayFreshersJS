@@ -68,8 +68,8 @@ class Login extends Component {
         <div className="layout-container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h2 className="text-center">Log In</h2>
-              <p className="lead text-center">
+              <h1 className="text-center">Log In</h1>
+              <p className="text-center">
                 Sign in to your StayFreshers account
               </p>
               <form className="layout-form"onSubmit={this.onSubmit}>

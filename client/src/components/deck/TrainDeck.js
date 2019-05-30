@@ -41,27 +41,29 @@ class TrainDeck extends Component {
 
   getPreviousCard(e) {
     let index = this.state.index
-    if (this.state.index === 0){
-      this.setState({
-        face: this.state.face === 'face' ? this.toggleFace() : '',
-        currentCard: this.state.cards[this.state.cards.length - 1],
-        index: this.state.cards.length - 1,
-        overflow_term: this.overflow(this.state.cards[this.state.cards.length - 1].term),
-        overflow_definition: this.overflow(this.state.cards[this.state.cards.length - 1].definition)
-      })
+    if (index === 0){
+      this.cardChange(this.state.cards.length - 1)
+      // this.setState({
+      //   face: this.state.face === 'face' ? this.toggleFace() : '',
+      //   currentCard: this.state.cards[this.state.cards.length - 1],
+      //   index: this.state.cards.length - 1,
+      //   overflow_term: this.overflow(this.state.cards[this.state.cards.length - 1].term),
+      //   overflow_definition: this.overflow(this.state.cards[this.state.cards.length - 1].definition)
+      // })
     }else
-    this.setState({
-      face: this.state.face === 'face' ? this.toggleFace() : '',
-      currentCard: this.state.cards[this.state.index -1],
-      index: this.state.index-1,
-      overflow_term: this.overflow(this.state.cards[index-1].term),
-      overflow_definition: this.overflow(this.state.cards[index-1].definition)
-    })
+    this.cardChange(index-1)
+    // this.setState({
+    //   face: this.state.face === 'face' ? this.toggleFace() : '',
+    //   currentCard: this.state.cards[this.state.index -1],
+    //   index: this.state.index-1,
+    //   overflow_term: this.overflow(this.state.cards[index-1].term),
+    //   overflow_definition: this.overflow(this.state.cards[index-1].definition)
+    // })
   }
 
   getNextCard(e) {
-    // let index = this.state.index
-    if (this.state.index + 1 > this.state.cards.length - 1) {
+    let index = this.state.index
+    if (index === this.state.cards.length - 1) {
       this.cardChange(0)
       // this.setState({
       //   face: this.state.face === 'face' ? this.toggleFace() : '',

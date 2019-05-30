@@ -25,7 +25,9 @@ class Decks extends Component {
         return (
                 <div className="container">
                     <Sort />
-                    {deckContent}
+                    <div className="deck-feed">
+                        {deckContent}
+                    </div>
                 </div>
         );
     }

@@ -59,7 +59,7 @@ class DeckItem extends Component {
             </div>
         )
         return (
-                <div className="card p-4 m-2 text-center">
+            <div className={"text-center" + (showActions ? " card deck-card p-4 m-2" : " deck-info")}>
                 {/* <div className="row"> */}
                     {/* <div className="col">
                         <a href="profile.html">

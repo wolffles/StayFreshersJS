@@ -51,26 +51,6 @@
   box-sizing: border-box;
 }
 
-/* font size scales with view */
-h1{
-  font-size: 5rem;
-}
-
-h2{
-  font-size: 4rem;
-}
-
-.h2{
-  font-size: 4rem;
-}
-
-h3{
-  font-size: 3rem;
-}
-
-.h3{
-  font-size: 3rem;
-}
 
 img {
   width: 100%;
@@ -78,26 +58,7 @@ img {
 
 @media only screen and (max-width: 768px){
   
-  h1{
-    font-size:8vw;
-  }
-
-  h2{
-    font-size: 6vw;
-  }
-
-  .h2{
-    font-size: 6vw;
-  }
-
-  .h4{
-    font-size: 3vw;
-  }
-
-  * {
-    font-size: 1rem;
-  }
-  
+ 
 }
 
 
@@ -119,6 +80,7 @@ a:hover{
   box-shadow:5px 5px 5px #cccaca, -5px 5px 5px #cccaca;
 }
 
+
 .latest-profiles-img {
   width: 40px;
   height: 40px;
@@ -132,7 +94,7 @@ a:hover{
 
 
 .container {
-  font-size: 2rem;
+  /* font-size: 2rem; */
   max-width: 1000px;
   border-radius: 10px;
   padding-top: 20px;
@@ -148,16 +110,18 @@ a:hover{
   border: 1px solid;
 }
 
-/* ------------------------------------------------Deck */
-.deck-info{
-  /* display: inline-block;
-  vertical-align: middle; */
-  padding: 25% 0;
-  height: 100%;
-}
+/* ------------------------------------------------deck */
 
+.deck-info{
+  height:85%;
+  padding: 25% 0;
+}
 .text-area{
   height: 100px;
+}
+
+.card-info{
+  min-width: 280px;
 }
 
 
@@ -188,18 +152,19 @@ li .nav-link {
   padding-top: 15vh;
   justify-content: center;
   margin:auto;
-  /* background: rgba(0,0,0,0.5); */
+
 }
 
 .layout-form{
-  max-width: 100%;
+  max-width: 80%;
+  margin:auto;
 }
 
 .footer {
   position: relative;
 }
 
-/* ---------------------------------------------- dashboard flexbox content */
+/* ------------------------------------------dashboard & explore */
 .deck-feed{
   width: 100%;
   overflow: hidden;
@@ -207,6 +172,10 @@ li .nav-link {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.deck-card{
+  width:450px;
 }
 
 .dash-header{
@@ -261,12 +230,12 @@ li .nav-link {
   backface-visibility: hidden;
   position: absolute;
   overflow: hidden;
-  background-color: grey(167, 14, 14);
   justify-content: center;
   text-align: center;
   align-items: center;
   display:flex;
   font-size: 5vmin;
+  background:white;
 }
 
 .term{
