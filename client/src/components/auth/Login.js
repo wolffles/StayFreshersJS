@@ -64,14 +64,15 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="login py-5">
+      <div className="login">
+        <div className="layout-container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Log In</h1>
               <p className="lead text-center">
                 Sign in to your StayFreshers account
               </p>
-              <form onSubmit={this.onSubmit}>
+              <form className="layout-form"onSubmit={this.onSubmit}>
                 <TextFieldGroup
                   placeholder="Email Address"
                   name="email"
@@ -96,6 +97,7 @@ class Login extends Component {
               </form>
             </div>
           </div>
+        </div>
       </div>
     );
   }

@@ -64,13 +64,13 @@ class Sort extends Component {
           />
         </form> */}
         <form className="input-group mb-2" onSubmit={this.onSubmit}>
-          <select className="col h4" name='attribute' value={this.state.attribute} onChange={this.onChange}>
-            <option value="">Select an attribute</option>
+          <select className="col" name='attribute' value={this.state.attribute} onChange={this.onChange}>
+            <option className='options' value="">Select an attribute</option>
             <option value="date">Date</option>
             <option value="like_count">Likes</option>
             {/* <option value="dislikes">Dislikes</option> */}
           </select>
-          <select className="col h4" name="order" value={this.state.order} onChange={this.onChange}>
+          <select className="col" name="order" value={this.state.order} onChange={this.onChange}>
             <option value="">Select an order</option>
             <option value="1">ASC, low-high</option>
             <option value="-1">DESC, high-low</option>

@@ -9,12 +9,6 @@
 */
 
 
-
-* {
-  box-sizing: border-box;
-  font-size: 2vw
-}
-
 .light{
   background-color: #cccccc;
   /* box-shadow:5px 5px 5px #cccaca, -5px 5px 5px #cccaca; */
@@ -53,6 +47,10 @@
   color: white;
 }
 
+* {
+  box-sizing: border-box;
+  font-size: 1rem;
+}
 
 /* font size scales with view */
 h1{
@@ -75,6 +73,29 @@ img {
   width: 100%;
 }
 
+@media only screen and (max-width: 768px){
+  
+  h1{
+    font-size:8vw;
+  }
+
+  h2{
+    font-size: 6vw;
+  }
+
+  .h2{
+    font-size: 6vw;
+  }
+
+  .h4{
+    font-size: 3vw;
+  }
+
+  * {
+    font-size: 1rem;
+  }
+  
+}
 
 
 /* ----------------------------------------------- app themes */
@@ -86,33 +107,6 @@ a:hover{
   color: black;
 }
 
-.landing, .login, .register {
-  position: relative;
-  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)),
-                     url('./img/showcase1k.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  margin-bottom: -50px;
-  color:white;
-}
-
-.appName {
-  font-size: 10vw;
-}
-
-.landing-inner {
-  padding-top: 80px;
-}
-
-/* .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-} */
 
 .card-form {
   opacity: 0.9;
@@ -126,17 +120,30 @@ a:hover{
   width: 40px;
   height: 40px;
 }
-
+/* .form-control{
+  max-height:80vh;
+} */
 .form-control::placeholder {
   color: #bbb !important;
 }
 
+
 .container {
+  max-width: 1000px;
   border-radius: 10px;
   padding-top: 20px;
   justify-content: center;
   background-color: #e9e5e5;
   box-shadow:5px 5px 10px  #e9e5e5, -5px -5px 10px  #e9e5e5
+}
+
+.options{
+  font-size:10px;
+  position: inherit;
+  background: #300
+}
+option{
+  background: #300;
 }
 /* ------------------------------------------Deck */
 .deck-info{
@@ -148,9 +155,37 @@ a:hover{
 
 
 /* ---------------------------------------- Layout, navbar, footer */
+.landing, .login, .register {
+  position: relative;
+  background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.5)),
+                     url('./img/showcase1k.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin-bottom: -50px;
+  color:white;
+}
+
+
+.landing-inner {
+  padding-top: 80px;
+}
 
 li .nav-link {
   text-align: right;
+}
+
+.layout-container{
+  max-width: 500px;
+  max-height: 90vh;
+  padding-top: 15vh;
+  justify-content: center;
+  margin:auto;
+  background: rgba(0,0,0,0.5);
+}
+
+.layout-form{
+  max-width: 100%;
 }
 
 .footer {
@@ -255,22 +290,3 @@ ul{
 }
 
 
-@media only screen and (max-width: 768px){
-  
-  h1{
-    font-size:8vw;
-  }
-
-  h2{
-    font-size: 6vw;
-  }
-
-  .h2{
-    font-size: 6vw;
-  }
-
-  .h4{
-    font-size: 3vw;
-  }
-  
-}

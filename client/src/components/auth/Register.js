@@ -53,14 +53,15 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="register py-5">
+      <div className="register">
+        <div className="layout-container">        
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Sign Up</h1>
-              <p className="lead text-center">
+              <h1 className="text-center">Sign Up</h1>
+              <p className="text-center">
                 Create your StayFreshers account
               </p>
-              <form noValidate onSubmit={this.onSubmit}>
+              <form noValidate className='layout-form' onSubmit={this.onSubmit}>
                 <TextFieldGroup
                   placeholder="Name"
                   name="name"
@@ -98,6 +99,7 @@ class Register extends Component {
               </form>
             </div>
           </div>
+        </div>
       </div>
     );
   }
