@@ -31,7 +31,7 @@ class Landing extends Component {
     return (
         <div className="landing">
             <div className=" landing-inner text-light">
-                <div className="container">
+                <div className="landing-container">
                     <div className="row">
                         {/* <div className="col-md-12 text-center">
                             <h1 className="appName mb-4">StayFreshers</h1>
