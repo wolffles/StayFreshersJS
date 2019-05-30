@@ -68,7 +68,7 @@ class Login extends Component {
         <div className="layout-container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center">Log In</h1>
+              <h2 className="text-center">Log In</h2>
               <p className="lead text-center">
                 Sign in to your StayFreshers account
               </p>

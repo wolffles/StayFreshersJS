@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ProfileButtons = () => {
     return (
-    <div className="btn-group h3" role="group">
+    <div className="btn-group" role="group">
         <Link to="/edit-profile" className="mint link">
             <i className="fas fa-user-circle text-info mr-1" /> Edit Profile
         </Link>

@@ -63,15 +63,15 @@ class Sort extends Component {
             className="btn SF-green-btn btn mt-4"
           />
         </form> */}
-        <form className="input-group mb-2" onSubmit={this.onSubmit}>
-          <select className="col" name='attribute' value={this.state.attribute} onChange={this.onChange}>
-            <option className='options' value="">Select an attribute</option>
+        <form className="input-group sort-group mb-2" onSubmit={this.onSubmit}>
+          <select className="col sort-select" name='attribute' value={this.state.attribute} onChange={this.onChange}>
+            <option className='options' value="">Attribute</option>
             <option value="date">Date</option>
             <option value="like_count">Likes</option>
             {/* <option value="dislikes">Dislikes</option> */}
           </select>
-          <select className="col" name="order" value={this.state.order} onChange={this.onChange}>
-            <option value="">Select an order</option>
+          <select className="col sort-select" name="order" value={this.state.order} onChange={this.onChange}>
+            <option value="">Order</option>
             <option value="1">ASC, low-high</option>
             <option value="-1">DESC, high-low</option>
           </select>

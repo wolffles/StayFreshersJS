@@ -49,24 +49,27 @@
 
 * {
   box-sizing: border-box;
-  font-size: 1rem;
 }
 
 /* font size scales with view */
 h1{
-  font-size: 6vw;
+  font-size: 5rem;
 }
 
 h2{
-  font-size: 4vw;
+  font-size: 4rem;
+}
+
+.h2{
+  font-size: 4rem;
 }
 
 h3{
-  font-size: 2vw;
+  font-size: 3rem;
 }
 
 .h3{
-  font-size: 2vw;
+  font-size: 3rem;
 }
 
 img {
@@ -129,6 +132,7 @@ a:hover{
 
 
 .container {
+  font-size: 2rem;
   max-width: 1000px;
   border-radius: 10px;
   padding-top: 20px;
@@ -137,20 +141,23 @@ a:hover{
   box-shadow:5px 5px 10px  #e9e5e5, -5px -5px 10px  #e9e5e5
 }
 
-.options{
-  font-size:10px;
-  position: inherit;
-  background: #300
+.sort-group{
+  font-size:1em;
 }
-option{
-  background: #300;
+.sort-select{
+  border: 1px solid;
 }
-/* ------------------------------------------Deck */
+
+/* ------------------------------------------------Deck */
 .deck-info{
   /* display: inline-block;
   vertical-align: middle; */
   padding: 25% 0;
   height: 100%;
+}
+
+.text-area{
+  height: 100px;
 }
 
 
@@ -181,7 +188,7 @@ li .nav-link {
   padding-top: 15vh;
   justify-content: center;
   margin:auto;
-  background: rgba(0,0,0,0.5);
+  /* background: rgba(0,0,0,0.5); */
 }
 
 .layout-form{

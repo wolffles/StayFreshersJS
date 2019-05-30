@@ -68,6 +68,7 @@ class AddCard extends Component {
                   autofocus={true}
                 /> 
                 <TextAreaFieldGroup
+                  className="text-area"
                   placeholder="Definition"
                   name="definition"
                   value={this.state.definition}

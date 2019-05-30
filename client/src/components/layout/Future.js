@@ -47,7 +47,7 @@ class Future extends Component {
     const { feedback } = this.props.actions
 
     return (
-      <div className="future">
+      <div className="future container" >
         <h2 className="text-center">News on the new new</h2>
         <ul className="text-center">
           <li>App visually looks better</li>

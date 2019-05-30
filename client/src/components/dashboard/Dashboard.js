@@ -36,7 +36,7 @@ class Dashboard extends Component {
       dashboardContent = (
         <div>
           <div className="dash-header py-5 mint-green text-center">
-            <h2 className=""> Welcome <Link className='link h2' to={`/profile/${profile.handle}`}>{user.name}</Link></h2>
+            <h2 className=""> Welcome <Link className='link' to={`/profile/${profile.handle}`}>{user.name}</Link></h2>
             <div>
               <ProfileButtons />
             </div>
