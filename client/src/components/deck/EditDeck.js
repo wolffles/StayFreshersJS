@@ -82,14 +82,14 @@ class EditDeck extends Component {
         </form>)
 
     return (
-      <div className="deck-form mb-3">
-        <div className="card card-info">
+      // <div className="deck-form mb-3">
+        <div className="card card-info h-100">
           <div className="card-header mint-green">Edit your deck</div>
           <div className="card-body">
             {deckContent}
           </div>
         </div>
-      </div>
+      // </div>
     );
   }
 }

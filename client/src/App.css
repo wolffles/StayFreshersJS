@@ -52,9 +52,9 @@
 }
 
 
-img {
+/* img{
   width: 100%;
-}
+} */
 
 @media only screen and (max-width: 768px){
   
@@ -92,6 +92,9 @@ a:hover{
   color: #bbb !important;
 }
 
+.app-container{
+  background-color: #e9e5e5;
+}
 
 .container {
   /* font-size: 2rem; */
@@ -99,7 +102,6 @@ a:hover{
   border-radius: 10px;
   padding-top: 20px;
   justify-content: center;
-  background-color: #e9e5e5;
   box-shadow:5px 5px 10px  #e9e5e5, -5px -5px 10px  #e9e5e5
 }
 
@@ -113,8 +115,8 @@ a:hover{
 /* ------------------------------------------------deck */
 
 .deck-info{
-  height:85%;
-  padding: 25% 0;
+  /* height:85%; */
+  padding: 10% 0;
 }
 .text-area{
   height: 100px;
@@ -124,6 +126,9 @@ a:hover{
   min-width: 280px;
 }
 
+.card-img{
+  max-width: 30%;
+}
 
 /* ---------------------------------------- Layout, navbar, footer */
 .landing, .login, .register {

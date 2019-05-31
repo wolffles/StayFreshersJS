@@ -51,8 +51,6 @@ class Deck extends Component {
         let deckContent;
         if (deck === null || loading || Object.keys(deck).length === 0) {
             deckContent = <Spinner />;
-        } else if( edit === true){
-            deckContent = <EditDeck deck={deck}/>
         } else if(fresher === true){
             if (deck.cards.length > 0){
                 deckContent = <TrainDeck deck={deck}/>
@@ -64,17 +62,14 @@ class Deck extends Component {
                 <div className="deck-view">
                     <div className="row mb-2">
                         <div className="col">
-                            <div className="card card-info h-100">
-                                <div className="card-header mint-green">Deck Info</div>
-                                {/* <div className="deck-info text-center">
-                                    <h2 className="subject font-weight-bold">{deck.subject}</h2>
-                                    <div className="description">{deck.description}</div>
-                                    <div className="card_count">card count: {deck.cards.length}</div>
-                                </div> */}
-                                <div className="card-body">
-                                    <DeckItem deck={deck} showActions={false}/>
-                                </div>
-                            </div>    
+                            {edit ? <EditDeck deck={deck} /> :
+                                <div className="card card-info h-100">
+                                    <div className="card-header mint-green">Deck Info</div>
+                                    <div className="card-body">
+                                        <DeckItem deck={deck} showActions={false}/>
+                                    </div>
+                                </div>    
+                            }
                         </div>
                         {(deck.user === auth.user.id) ? <div className="col"><AddCard deck={deck} /> </div> : <div className="col"><PublicProfile user_id={deck.user}/></div>}
                     </div>
@@ -87,7 +82,7 @@ class Deck extends Component {
         let freshButton;
         if (deck.user === auth.user.id){ 
             if( edit === true ){ 
-                editButton = (<button className="btn light mx-1 mb-3" onClick={this.onEditClick}>Back</button>) 
+                editButton = (<button className="btn light mx-1 mb-3" onClick={this.onEditClick}>Cancel</button>) 
             } else {
                 editButton = (<button className="btn light mx-1 mb-3" onClick={this.onEditClick}>Edit Deck</button>)
             }

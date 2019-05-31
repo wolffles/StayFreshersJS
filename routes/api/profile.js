@@ -12,6 +12,30 @@ const validateEducationInput = require("../../validation/education");
 const Profile = require('../../models/Profile');
 //Load User Model
 const User =  require('../../models/User');
+// const Deck = require('../../models/Deck');
+
+
+// router.get('/fix', (req,res) => {
+//     Profile.findOne({user: req.body.id}).then(profile =>{
+//         Deck.find().then(decks=> {
+//             decks = decks.map(deck => deck.id.toString())
+//             let i = 0
+//             // console.log(decks)
+//             for(i; i < profile.decks.length;i++ ){
+//                 console.log(profile.decks.length, i)
+//                 if(decks.includes(profile.decks[i].toString()) === true) {
+//                     console.log( true ) 
+//                 }else{
+//                     profile.decks.splice(i,1)
+//                     i--
+//                 }
+//             }
+//             console.log(profile.decks)
+//             profile.save()
+//         }).res(()=> res.json({msg: "success"}))
+//     }).catch(err => res.json(err))
+// })
+
 
 //@route    GET api/profile/all
 //@desc     gets all profiles

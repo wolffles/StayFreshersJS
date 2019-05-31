@@ -157,7 +157,14 @@ router.delete(
                     }
 
                     // Delete
-                    deck.remove().then(() => res.json({ success: true }));
+                    deck.remove().then(() => {
+                        const removeIndex = profile.decks
+                            .map(deck => deck.id.toString())
+                            .indexOf(req.params.id);
+                        profile.decks.splice(removeIndex, 1)
+                        profile.save()
+                            .then(() => res.json({ success: true }))
+                    })
                 })
                 .catch(err => res.status(404).json({ decknotfound: 'No deck found' }));
         });
