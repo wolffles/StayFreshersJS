@@ -67,11 +67,11 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req,res) => {
     .then( profile => {
         if(!profile) {
             errors.noprofile = 'There is no profile for this user';
-            return res.status(404).json(errors);
+            return res.json({})
         }
         res.json(profile);
     })
-    .catch(err => res.status(404).json(err)) // catch for findOne
+    .catch(err => res.json({msg: "Profile doesn't exist"})) // catch for findOne
 });
 
 //@route    GET api/profile/handle/:handle

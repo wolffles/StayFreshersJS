@@ -7,10 +7,11 @@ import { getUserDecks } from '../../actions/deckActions';
 import Spinner from '../common/Spinner';
 import ProfileButtons from './ProfileButtons';
 import DeckFeed from '../deck/DeckFeed';
+import {logoutUser} from '../../actions/authActions'
 class Dashboard extends Component {
   componentDidMount(){
-    this.props.getCurrentProfile()
-    this.props.getUserDecks(this.props.auth.user.id);
+      this.props.getCurrentProfile()
+      this.props.getUserDecks(this.props.auth.user.id);
   }
 
   onDeleteClick(e) {
@@ -18,6 +19,7 @@ class Dashboard extends Component {
       alert("Sorry deleting the demo account is not allowed")
     }else{
     this.props.deleteAccount();
+    this.props.logoutUser()
     }
   }
 
@@ -28,7 +30,8 @@ class Dashboard extends Component {
     
     
     let dashboardContent;
-    if( profile == null || loading ) { 
+    
+    if( loading || profile === null) { 
       // if profile is loading
       dashboardContent = < Spinner/>
     } else if( Object.keys(profile).length > 0 ) {
@@ -55,14 +58,13 @@ class Dashboard extends Component {
       dashboardContent = (
         <div>
           <div className="py-3 mint-green">
-            <h2 className=""> Welcome { user.name }</h2>
+            <h2 className=""> Welcome {user.name}</h2>
             <p>You have not yet setup a profile, please add some info</p>
             <Link to="/create-profile" className="btn btn-lg SF-green-btn">Create Profile</Link>
           </div>
         </div>
       )
     }
-    
 
     return (
       <div className="dashboard">
@@ -79,6 +81,7 @@ Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   getUserDecks: PropTypes.func.isRequired,
   deleteAccount: PropTypes.func.isRequired,
+  logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
 }
@@ -89,4 +92,4 @@ const mapStateToProps = state => ({
   deck: state.deck
 })
 
-export default connect(mapStateToProps, {getUserDecks, getCurrentProfile, deleteAccount})(Dashboard);
+export default connect(mapStateToProps, {logoutUser, getUserDecks, getCurrentProfile, deleteAccount})(Dashboard);

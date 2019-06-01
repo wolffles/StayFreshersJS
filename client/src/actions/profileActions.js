@@ -61,6 +61,12 @@ export const getProfileByHandle = (handle) => dispatch => {
 export const createProfile = (profileData, history) => dispatch => {
     axios
         .post('/api/profile/', profileData)
+        .then(res => 
+            dispatch({
+                type: GET_PROFILE,
+                payload: res.data
+            })
+        )
         .then(res => history.push('/dashboard'))
         .catch(err =>
             dispatch({
@@ -97,22 +103,7 @@ export const addExperience = (expData, history) => dispatch => {
         );
 };
 
-//delete experience 
-export const deleteExperience = (id) => dispatch => {
-    axios
-        .delete(`/api/profile/experience/${id}`)
-        .then(res => dispatch({
-            type: GET_PROFILE,
-            payload: res.data
-        })
-        )
-        .catch(err =>
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response.data
-            })
-        )
-};
+
 
 //delete education 
 export const deleteEducation = (id) => dispatch => {
@@ -151,6 +142,9 @@ export const deleteAccount = () => dispatch => {
     if(window.confirm('Are you sure? this can NOT be undone!')) {
         axios
             .delete('/api/profile')
+            .then(res => dispatch(
+                clearCurrentProfile()
+            ))
             .then(res => dispatch({
                 type: SET_CURRENT_USER,
                 payload: {}

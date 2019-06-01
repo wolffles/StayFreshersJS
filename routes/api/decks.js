@@ -31,7 +31,7 @@ router.get('/user/:user_id', (req, res) => {
     Profile.findOne({ user: req.params.user_id })
         .populate("decks")
         .then(profile => res.json(profile.decks))
-        .catch(err => res.status(404).json({ nodeckFound: "no Profile found with that ID" }));
+        .catch(err => res.json([]));
 })
 
 //@route    GET api/decks

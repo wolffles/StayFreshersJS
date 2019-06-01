@@ -100,7 +100,7 @@ export const getUserDecks = (user_id) => dispatch => {
         .catch(err =>
             dispatch({
                 type: GET_DECKS,
-                payload: null
+                payload: []
             })
         );
 };
