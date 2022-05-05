@@ -13,7 +13,7 @@ class CardItem extends Component {
         this.onClick = this.onClick.bind(this);
     }
     onDeleteClick(deckId, cardId) {
-        if (['627431836a20162b762c466b'].includes(deckId)){
+        if (['627431836a20162b762c466b', '62743655e8459d001861a82f'].includes(deckId)){
             alert("Cant delete these sorry bud")
         }else{
             // console.log("oops")
