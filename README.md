@@ -12,7 +12,7 @@ CURRENTLY ( rush to production )
 
 CURRENTLY ( working on front end )
   * users need to be able to view others profiles
-  * deck feed shouldn't have abiltiy to delete
+  * deck feed shouldn't have ability to delete
 
 After login a user is taken to profile dashboard page should have the ability to:
   - list decks by title and subject. ( done )
@@ -23,3 +23,6 @@ After login a user is taken to profile dashboard page should have the ability to
   - ability to test decks
 
   * its also what you do with it. if you use some apis, and make something flashy anything can be impressive. Like a drag and drop matching system, or having a file uploader where a text file can be converted into a deck
+
+# Dev setup
+* The local login requires a file keys_dev.js. This is the connection string to the mongo db.
