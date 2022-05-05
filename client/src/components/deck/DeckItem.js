@@ -7,7 +7,7 @@ import { deleteDeck, toggleLike, toggleDislike } from '../../actions/deckActions
 
 class DeckItem extends Component {
     onDeleteClick(id) {
-        if (['5cede4a501cf540017fa9c66', '5cec273fac96612d49ea4b3c'].includes(this.props.deck._id)){
+        if (['627431836a20162b762c466b', '62743b40683b44001873aaae'].includes(this.props.deck._id)){
             alert("You just had to try didn't you? You weren't the first one to try. haha")
         }else {
             this.props.deleteDeck(id);
