@@ -159,7 +159,7 @@ router.delete(
                     // Delete
                     deck.remove().then(() => {
                         const removeIndex = profile.decks
-                            .map(deck => deck.id.toString())
+                            .map(element => element.toString())
                             .indexOf(req.params.id);
                         profile.decks.splice(removeIndex, 1)
                         profile.save()
